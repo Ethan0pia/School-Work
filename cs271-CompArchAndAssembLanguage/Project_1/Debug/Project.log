@@ -1,0 +1,3 @@
+﻿  Assembling Program1_Dunham_Ethan.asm...
+Program1_Dunham_Ethan.asm(38): fatal error A1010: unmatched block nestin
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\BuildCustomizations\masm.targets(50,5): error MSB3721: The command "ml.exe /c /nologo /Sg /WX /Zi /Fo"Debug\Program1_Dunham_Ethan.obj" /Fl"Project.lst" /I "c:\Irvine" /W3 /errorReport:prompt  /TaProgram1_Dunham_Ethan.asm" exited with code 1.
