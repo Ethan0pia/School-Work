@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Enter City or ZIP code</legend>
+            <label for="longUrl"></label>
+            <input type="text" id="cityEnter">
+            <input type="submit" id="submitButton">
+        </fieldset>
+    </form>
+    <div>
+        <h2>Weather Result</h2>
+        <ul>
+            <li><span>City: </span><span id="city"></span></li>
+            <li><span>Temp: </span><span id="temp"></span></li>
+            <li><span>Humidity: </span><span id="humid"></span></li>
+        </ul>
+    </div>
+
+    <form id="formPost">
+        <fieldset>
+            <legend>Form Stuff Post:</legend>
+            <label>
+                Enter String:
+                <input type="text" id="text_input" size="30" maxlength="100">
+            </label>
+            <input type="submit" id="submitPost" value="Submit review" />
+        </fieldset>
+    </form>
+
+    <div>
+        <h2>Post Result</h2>
+        <ul>
+            <li><span>Name: </span><span id="return1"></span></li>
+        </ul>
+    </div>
+
+    <script src="weather.js"></script>
+</body>
+</html>

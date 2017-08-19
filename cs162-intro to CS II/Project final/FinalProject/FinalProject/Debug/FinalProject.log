@@ -1,0 +1,7 @@
+﻿  VampireSquare.cpp
+  Player.cpp
+  MonsterSquare.cpp
+c:\users\alise\desktop\ethan\ethan school\winter 2017 cs162-intro to cs ii\project final\finalproject\finalproject\monstersquare.cpp(65): warning C4101: 'roll': unreferenced local variable
+  Generating Code...
+  FinalProject.vcxproj -> C:\Users\Alise\Desktop\Ethan\Ethan School\Winter 2017 CS162-Intro to CS II\Project final\FinalProject\Debug\FinalProject.exe
+  FinalProject.vcxproj -> C:\Users\Alise\Desktop\Ethan\Ethan School\Winter 2017 CS162-Intro to CS II\Project final\FinalProject\Debug\FinalProject.pdb (Partial PDB)

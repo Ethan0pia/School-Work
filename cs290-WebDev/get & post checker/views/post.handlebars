@@ -1,0 +1,13 @@
+﻿<h1>You sent the following data in a POST request:</h1>
+<table style="border:solid;border-width:2px;">
+    {{#each dataList}}
+    <tr style="border:solid;border-width:2px;">
+        <th style="border:solid;border-width:2px;">Name</th>
+        <th style="border:solid;border-width:2px;">data</th>
+    </tr>
+    <tr style="border:solid;border-width:2px;">
+        <td style="border:solid;border-width:2px;">{{this.name}}</td>
+        <td style="border:solid;border-width:2px;">{{this.data}}</td>
+    </tr>
+    {{/each}}
+</table>

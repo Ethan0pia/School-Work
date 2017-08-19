@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Deck of Cards API</title>
+    <link rel="stylesheet" href="stylesheet2.css" type="text/css">
+</head>
+<body>
+
+    <div id="header">
+        <input type="button" value="Intro"
+               onclick="window.open('intro.html', '_self');" />
+        <input type="button" value="Deck of Cards API"
+               onclick="window.open('explain.html', '_self');" />
+        <input type="button" value="Making Blackjack"
+               onclick="window.open('making.html', '_self');" />
+        <input type="button" value="Play Blackjack"
+               onclick="window.open('Blackjack.html', '_self');" />
+        <input type="button" value="Summary"
+               onclick="window.open('summary.html', '_self');" />
+    </div>
+
+    <h1>What is Deck of Cards API?</h1>
+
+    Deck of Cards API is a simple and straight forward API that is a great tool
+    to use for someone who knows little to nothing about APIs. It is also very useful to
+    anyone who wants to create a card game without having to code the decks in manually.
+
+    <h2>What can it do?</h2>
+    One of the great things about Deck of Cards is that it does not require an API ID.
+    This means that anyone can use it without applying for an ID. This means that all you
+    need to complete this tutorial is a way to create and edit HTML, CSS, and JavaScript files.
+    No outside signups are necessary.
+    <p>
+        The Deck of Cards API can be called to return cards, create decks, and create discard
+        piles. A list of calls and responses from the API can be viewed <a href="https://deckofcardsapi.com/">here</a>.
+    </p>
+
+    <p>
+        If you rather not read the Deck of Cards API website, I will breifly go over the different calls, what they do,
+        and how to call them. If you chose to read the API website, click the "Making Blackjack" button at the top of the page 
+        or scroll to the bottom of the page and click the "next" button to move on to the next step.
+    </p>
+
+    <h3>Create a Deck:</h3>
+    To create a deck, you need to call <span>
+    "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=X" </span>
+    where "X" is the number
+    of decks you want to use. "shuffle" makes the API create the decks already shuffled. If you do not want them shuffled,
+    you can leave that part off the link. The response that you get is in JSON format, so you should parse the response to make
+    the information usable. The API returns if it was successful, the deck_id, if it was shuffled, and the number of remaining cards in JSON
+    format. The number of cards remaining and deck_id are important. You can't draw from an empty deck and saving the deck_id will
+    allow you to continue using the same deck as you play instead of creating a new one each time.
+
+    <h3>Draw a Card:</h3>
+    To draw a card, you need to call <span> "https://deckofcardsapi.com/api/deck/deck_id/draw/?count=X" </span>where "x" is the number of cards you
+    want to draw from the deck and "deck_id" is replaced with your deck_id from creating the deck(s). As with everything returned by
+    this API, it is in JSON format. It contains success, cards, decck_id, and remaining. Cards contains some very useful information.
+    It contains an array of card objects returned from the API, depending on how many cards you requested. Each card object contains
+    an image link, a value, a suit, and a code. The code contains the value and suit of the card, like "8C" for 8 of clubs.
+
+    <h3>Reshuffle:</h3>
+    If your deck is almost empty or empty, you have the option to reshuffle the cards. This is done by calling<span>
+    "https://deckofcardsapi.com/api/deck/"deck_id"/shuffle/" </span> where "deck_id" is replaced with your deck_id. This will shuffle the deck that the API is storing for you so that it can be reused.
+    Using this option also helps the API from filling up with unused decks. So, if possible, one should reshuffle instead of create a new deck.
+   
+
+    <h3>Custom Deck:</h3>
+    You can create a custom deck to play with. This would be useful for Pinochle and other partial or weird decked games. To create
+    a custom deck, call<span> "https://deckofcardsapi.com/api/deck/new/shuffle/?cards=" </span>where you add the card codes after "cards=" seperated by
+    commas.
+
+    <h3>Adding to Pile:</h3>
+    Deck of Cards also allows the creation of a pile. This could be used as a discard pile for games such as War, Rummy, etc.
+    This is done by calling<span> "https://deckofcardsapi.com/api/deck/"deck_id"/pile/"pile_name"/add/?cards=" </span>where "deck_id" is your deck
+    id, "pile_name" is a name you create or the name of a pile you already created, and after "cards=" you add the card code(s) of the
+    cards you wish to add to the pile. It is possible to create multiple piles for a single deck, but you cannot make a pile if you are
+    using more than 1 deck. This returns the remaining cards in the deck, and an array of piles with the number of cards in the piles.
+
+    <h3>Drawing from Pile:</h3>
+    Drawing from a pile allows the user to draw any card that is inside the pile. It can be called with <span> "https://deckofcardsapi.com/api/deck/"deck_id"/pile/
+    "pile_name"/draw/"?cards="" </span>where "deck_id" is your deck id, "pile_name" is the name of your pile, and "?cards=" is options. "?cards="
+    will return a specific card in the pile. If you leave off "?cards=" it will return the top card. This function returns if it was successful,
+    the deck_id, remaining card number, piles array, and an array of cards that were drawn.
+
+
+    <div id="footer">
+        <input id="prev" type="button" value="Previous"
+               onclick="window.open('index.html', '_self');" />
+        <input id="next" type="button" value="Next"
+               onclick="window.open('making.html', '_self');" />
+    </div>
+</body>
+</html>

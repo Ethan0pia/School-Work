@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\alise\desktop\ethan\ethan school\winter 2017 cs162-intro to cs ii\project 3\project3\main.cpp(28): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Project3.vcxproj -> C:\Users\Alise\Desktop\Ethan\Ethan School\Winter 2017 CS162-Intro to CS II\Project 3\Project3\Debug\Project3.exe
+  Project3.vcxproj -> C:\Users\Alise\Desktop\Ethan\Ethan School\Winter 2017 CS162-Intro to CS II\Project 3\Project3\Debug\Project3.pdb (Partial PDB)

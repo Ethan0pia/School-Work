@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Making Blackjack</title>
+    <link rel="stylesheet" href="stylesheet3.css" type="text/css">
+</head>
+<body>
+
+    <div id="header">
+        <input type="button" value="Intro"
+               onclick="window.open('intro.html', '_self');" />
+        <input type="button" value="Deck of Cards API"
+               onclick="window.open('explain.html', '_self');" />
+        <input type="button" value="Making Blackjack"
+               onclick="window.open('making.html', '_self');" />
+        <input type="button" value="Play Blackjack"
+               onclick="window.open('Blackjack.html', '_self');" />
+        <input type="button" value="Summary"
+               onclick="window.open('summary.html', '_self');" />
+    </div>
+
+    <h1>How-To make a Blackjack game using Deck of Cards API</h1>
+    Now, for the fun part...
+
+    <h2>Planning:</h2>
+    First, let's think about what we are trying to accomplish for a minute.
+    To play Blackjack, we need to create a deck, draw cards, and maybe reshuffle
+    our decks. Do we need a discard pile? A custom deck? Not unless we are planning
+    on changing the Blackjack rules, which we are not. Usually,
+    casinos play with 6-8 decks, so let's plan on using 7 decks. We will also need a way to
+    deal, hit, and stand; the 3 most important parts of Blackjack. A way of keeping score,
+    keeping count of card values, and a way to show who won will also be needed.
+
+    <h2>Step 1-The HTML:</h2>
+    <p>Let's start by creating a new text document and naming it Blackjack.html. Then, open
+    it in your normal programming IDE or in Notepad if you have nothing better. Let's start
+    with the basic HTML skeleton shown below:
+    </p>
+    <img src="images/html1.png" />
+
+    <p>
+        Here, we changed title to Blackjack and the linked stylesheet to Blackjack.css, which we
+        will address later. After you complete this skeleton, we will be concentrating on the body
+        section only. If you open this HTML page, it should be white, but the title of the tab should
+        say "Blackjack".
+    </p>
+
+    <p>
+        Now, let's think of what we need for a Blackjack game. We need a dealer area for the dealer's cards,
+        a player area for the player's cards, a way to differentiate them, a button to deal, a button to hit,
+        a button to stand, maybe a score, and a place to display the current card total because no one likes
+        doing mental math all the time.
+    </p>
+    <h4>Dealer and Player Areas:</h4>
+    <p>From this point on, everything should be added inside the body of the HTML page.</p>
+    <p>
+        Let's start by adding the dealer and player areas. Let's make 2 Divs with the IDs set to id="dealerarea" and id="playerarea".
+        The top div should be the dealer area so that the user is looking at their side of the table. Inside that each div, let's
+        add a header 3 (h3) that says "Dealer: " and "Player: ". It should look like below:
+    </p>
+    <img src="images/html2.png" />
+    <p>
+        I think that inside that header would be a good place to put the notifications when you win or lose.
+        So, let's go ahead and add a span inside each of those headers, next to "Player: " and "Dealer: ". We need to 
+        put an id for each of these spans. Let's call the dealer's span id="dwin" and the player's to id="pwin".
+    </p>
+    <p>
+        We need a place to keep track of the current total of the cards, too. So, let's add a header 5 (h5) that contains "Dealer Total:"
+        and "Player Total:". We also need to add a span inside each header to update the score later with JavaScript. We should set
+        these spans to have id="dtotal" and id"=ptotal". It should then look something like this:
+    </p>
+    <img src="images/html3.png" />
+    <p>
+        For the final part of these divs, we should add in an area for the cards to be displayed. We will add the images of cards that
+        the API sends us inside a new div. We can then easily delete all the image children inside this new div. So, between the 2 
+        headers inside each div, add a new div. Set the IDs to id="dealer"" and id="player". This will give us a set location to put the
+        card images that we receive from the API. It will look like this:
+    </p>
+    <img src="images/html4.png" />
+    <p>
+        The next thing we need are 3 buttons for the 3 basic functions of Blackjack. So, make 3 buttons; Deal, Hit, and Stand. Set
+        their IDs to id="deal", id="hit", and id="stand". Once you completed this, you HTML should look like this:
+    </p>
+    <img src="images/html5.png" />
+    <p>And your webpage should now look like this:</p>
+    <img src="images/html6.png" />
+    <p> Now, we need to take those buttons we just made and put them inside divs. Place each button inside a div
+    with the IDs being id="first", id="second", and id="third". Finally, but all 3 buttons and divs inside a single div with the id="wrapper".
+    Once you complete this, your html should look like this:
+    </p>
+    <img src="images/html7.png" />
+    <p>
+        The final steps in making the HTML page is to add a score counter. We will incrememnt this value by 1 when the player wins
+        and decrease it by 1 when the player loses. To add this, we will copy and paste the header and span that contains "Dealer: ".
+        Once you have copied and pasted that underneath the wrapper div, change h3 to h5 and the span ID to id="score". After that
+        is completed, add a script and set the source to src="Blackjack.js". The final HTML should look like this:
+    </p>
+    <img src="images/html8.png" />
+    <p>And your webpage should now look like this:</p>
+    <img src="images/html9.png" />
+    <h2>Step 2-The CSS:</h2>
+    <p>
+        So, we have our website completed, but it doesn't look very pretty, does it? So, what do we need?
+    </p>
+    <ol>
+        <li>A cool background and colored text</li>
+        <li>larger and colorful buttons</li>
+        <li>increase the size of the div for images</li>
+        <li>set the size of the card images we will be adding</li>
+    </ol>
+    <p>
+        The first step in making a CSS file is to create a new text document and name it "Blackjack.css". Remember how
+        we added that name in our link of the HTML page? Now it comes into play.
+    </p>
+    <p>
+        Let's start with fixing the background. Go onto google images and find a nice background picture. I like green felt, as
+        you can tell by the blackground picture of this how-to guide. Once you have found an image, download it to your computer
+        and put it in the same folder as your Blackjack.html file.
+    </p>
+    <p>
+        Inside your CSS file, type in "body" followed by an opening and closing squiggly brackets. Inside those brackets, type
+        "background-image: url("felt.jpg");". background-image: changes to background of body. url("felt.jpg") changes the image
+        to the location inside the parenthesis. Replace "felt.jpg" with the name of your image. Underneath the background-image, 
+        add "color:yellow;". Color: changes the text color of all the text inside the body to yellow. I find yellow easier to read
+        with a green background. After doing this and opening your HTML page, you should have a cool background and yellow text.
+    </p>
+    <p>
+        The next step is to create larger and colorful buttons. First, we need to adjust the wrapper div that contains the buttons.
+        To adjust the div with the id of "wrapper", we need to type in #wrapper. Do this on the line under the closing squiggly bracket
+        of the body. Then, add opening and closing squigglies next to #wrapper. Inside those squigglies, let's set the "overflow: normal;" 
+        to stop the score from being displayed next to the wrapper.
+    </p>
+    <p>
+        Once the wrapper has been adjusted, create 3 more sections called #first, #second, and #third. Set them all to have "float:left;"
+        and "width: 100px;". Your CSS file should look like this:
+    </p>
+    <img src="images/html10.png" />
+    <p>
+        We should now add some color and size to the buttons to make them easier to click and stand out more. We have 3 buttons, so we need
+        to create #deal, #hit, and #stand sections in our CSS. Set all 3 to "width:80px" and "height:50px". This will set their width and height
+        to a set 80 pixels and 50 pixels. Also, let's add a "background-color:" to each of the buttons. For deal, let's set it to "background-color:red;",
+        hit to "cornflowerblue;", and stand to "yellowgreen;". Also, black lettering is hard to see on a red background, so let's change
+        the color of text for deal to white with "color:white;". Once you have completed this, your HTML page should look like this when opened:
+    </p>
+    <img src="images/html11.png" />
+    <p>
+        Finally, we need to adjust the size of the card area. We don't have much space between "Dealer" and "Dealer Total" or "Player" and "Player Total".
+        To fix this, we will do several things. The first thing we need to do is create #dealer and #player fields in our CSS file. Inside them,
+        we need to set "height: 175px;" because 175px is a good height for a playing card on an average computer screen. The second step is
+        to create am "img" field in the css. Since it is not an ID, it will change all img on the page, even img that we add later. Since we
+        decided that 175px is a good height for a card, put that inside the img field as well. Also, with a height of 175px, 125px is a good width.
+        So, add "width:125px;" to the img feild. Once complete, your HTML page should look like this:
+    </p>
+    <img src="images/html12.png" />
+    <p>Your CSS file should look like this:</p>
+    <img src="images/html13.png" />
+    <p>Our page now looks presentable. We can imagine the cards filling the dealer and player areas and the totals updating as you draw. Now comes
+    the hard part, the JavaScript.</p>
+    <h2>Step 3-The JavaScript:</h2>
+
+
+        <div id="footer">
+            <input id="prev" type="button" value="Previous"
+                   onclick="window.open('explain.html', '_self');" />
+            <input id="next" type="button" value="Next"
+                   onclick="window.open('summary.html', '_self');" />
+        </div>
+</body>
+</html>

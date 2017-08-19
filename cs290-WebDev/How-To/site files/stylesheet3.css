@@ -1,0 +1,54 @@
+body{
+    margin: auto;
+    width: 800px;
+    background-image: url("felt.jpg");/*citation http://www.pickspokertables.com/options_image/Cloths/Regular_Suited_Cloths/pinegreensuitedcloth.gif*/
+    color: white;
+}
+
+h1{
+color: #FFB100;
+}
+
+h2{
+	color:#FDDA19;
+}
+
+#header{
+    background-color:black;
+    height:30px;
+    text-align: center;
+}
+
+#footer{
+    height:40px;
+}
+
+input{
+    background-color:black;
+    color:white;
+    height:90%;
+    width:18%;
+    margin: auto;
+    vertical-align: middle;
+    word-wrap: normal;
+}
+
+#next{
+    height:40px;
+    width:80px;
+    margin: auto;
+    float:right;
+}
+
+#prev{
+    height:40px;
+    width:80px;
+    margin: auto;
+    float:left;
+}
+
+img{
+    color:black;
+    border:solid;
+    border-width:4px;
+}

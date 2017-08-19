@@ -1,0 +1,17 @@
+{
+  "name": "getPostChecker",
+  "version": "1.0.0",
+  "description": "get and post with express and node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ethan Dunham",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.2",
+    "express-session": "^1.11.3",
+    "mysql": "^2.8.0"
+  }
+}

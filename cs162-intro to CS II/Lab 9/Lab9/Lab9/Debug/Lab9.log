@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\alise\desktop\ethan\ethan school\winter 2017 cs162-intro to cs ii\lab 9\lab9\lab9\main.cpp(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Stack.cpp
+  Generating Code...
+  Lab9.vcxproj -> C:\Users\Alise\Desktop\Ethan\Ethan School\Winter 2017 CS162-Intro to CS II\Lab 9\Lab9\Debug\Lab9.exe
+  Lab9.vcxproj -> C:\Users\Alise\Desktop\Ethan\Ethan School\Winter 2017 CS162-Intro to CS II\Lab 9\Lab9\Debug\Lab9.pdb (Partial PDB)

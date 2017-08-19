@@ -1,0 +1,35 @@
+﻿table{
+    border-style:solid;
+}
+td{
+  border-style:solid;
+}
+th{
+  border-style:solid;
+}
+
+.inner-content{
+  text-align: center;
+  top:25%;
+  right:25px;
+  width:75%;
+  height:20px;
+  background-color:aliceblue;
+  position: relative;
+  top:15px;
+  margin: 0 auto;
+}
+
+.outer-content{
+  top:20px;
+  width:75%;
+  height: 50px;
+  background-color:pink;
+}
+
+.blue{
+    background-color:aliceblue;
+}
+.green{
+    background-color:greenyellow;
+}
