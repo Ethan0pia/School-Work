@@ -7,7 +7,7 @@ time = now.hour+":"+ now.minute+":"+ now.second
 class MainPage(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
-        self.response.write(time)
+        self.response.write('%s' % time)
 
 
 app = webapp2.WSGIApplication([
