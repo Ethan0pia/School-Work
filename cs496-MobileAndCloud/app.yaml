@@ -4,4 +4,4 @@ threadsafe: false
 
 handlers:
 - url: /.*
-  script: timeDisplay.py
+  script: main.py
