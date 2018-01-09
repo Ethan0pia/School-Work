@@ -3,8 +3,5 @@ api_version: 1
 threadsafe: false
 
 handlers:
-- url: /
-  script: timeDisplay.py
-
 - url: /.*
-  script: not_found.app
+  script: timeDisplay.py
