@@ -20,22 +20,6 @@ CLIENT_ID = '527379074383-n8prs1s8c6pkl9ntadickctps9uutk7p.apps.googleuserconten
 CLIENT_SECRET = 'TNb6u0XRp-TpTGQ9njTxOn4E'
 REDIRECT_URI = 'https://cloud-only-final.appspot.com/oauth'
 
-class UserAccount(ndb.Model):
-    id = ndb.StringProperty()
-	user_id = ndb.StringProperty()
-    fname = ndb.StringProperty()
-    lname = ndb.StringProperty()
-    email = ndb.StringProperty()
-	car = ndb.StringProperty()
-
-class Cars(ndb.Model):
-	id = ndb.StringProperty()
-	make = ndb.StringProperty()
-	model = ndb.StringProperty()
-	MSRP = ndb.StringProperty()
-	MPG = ndb.StringProperty()
-
-
 class MainPage(webapp2.RequestHandler):
     def get(self):
 		#create a random string for the secret to pass to Google for auth
