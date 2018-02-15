@@ -16,9 +16,9 @@ import json
 import os
 
 #Global variables to easily change Oauth info between users/programs
-CLIENT_ID = '861808281824-3oddqr87b7lpqk6jjru8qo96vm4g3o4m.apps.googleusercontent.com'
-CLIENT_SECRET = '8g6njuwTBX9bdgt2XKkLmn0n'
-REDIRECT_URI = 'https://oauth-implementation-192621.appspot.com/oauth'
+CLIENT_ID = '527379074383-n8prs1s8c6pkl9ntadickctps9uutk7p.apps.googleusercontent.com'
+CLIENT_SECRET = 'TNb6u0XRp-TpTGQ9njTxOn4E'
+REDIRECT_URI = 'https://cloud-only-final.appspot.com/oauth'
 
 class UserAccount(ndb.Model):
     id = ndb.StringProperty()
@@ -110,7 +110,7 @@ class OAuthHandler(webapp2.RequestHandler):
             new_User.id = str(new_User.key.urlsafe())
             new_User.put()
 		#add values to webpage
-        path = os.path.join(os.path.dirname(__file__), 'templates/oauth.html')
+        path = os.path.join(os.path.dirname(__file__), 'pages/oauth.html')
         self.response.out.write(template.render(path, template_values))
 
 #page handling info
