@@ -1,0 +1,47 @@
+﻿<html lang="en">
+<head>
+    <title>Cloud Only Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen">
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="centered-text display-3">Cloud Only Project</h1>
+            <p class="lead centered-text">
+                In this assignment I implemented an OAuth 2.0 Server Side flow to create a user account to use with a RESTful API.
+            </p>
+            <p class="lead centered-text">
+                This assignment requirements are:
+                <ul>
+                    <li>
+                        You need to implement a REST API
+                    <li>
+                        User accounts are supported (ie. there is data tied to specific users that only they can see or modify) AND the account system uses 3rd party provider,
+                        there should be able to be an arbitrary number of accounts. Accounts *must* have access to some amount of account specific information that only they
+                        can either access or modify.
+                    <li>
+                        There should be at least 2 entities and they should have at least 4 properties each
+                    <li>
+                        There should be at least one relationship between entities
+                </ul>
+            <p class="lead centered-text">
+                The program will ask you to login to your google+ account. It will then generate a profile for that account and give you an ID to use for API requests based on your Google+ ID.
+            <p class="lead centered-text">
+                The ID is needed to access the user's profile. The profile will consist of an ID, a first name, a second name, an email, and their current car.
+            <p class="lead centered-text">
+                The second entity will be cars. Anyone can add cars to the database. The user can then search to find their car and add it's ID to their user profile. A car
+                will have an ID, a make, a model, MSRP, and MPG.
+            </p>
+            <br>
+            <div class="text-center">
+                <div class="btn-group">
+                    <a href="{{ url }}" class="btn btn-primary" style="background-color: #2196f3">Get User ID</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
