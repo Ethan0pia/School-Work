@@ -28,12 +28,6 @@ class UserAccount(ndb.Model):
     email = ndb.StringProperty()
 	car = ndb.StringProperty()
 
-class Cars(ndb.Model):
-	id = ndb.StringProperty()
-	make = ndb.StringProperty()
-	model = ndb.StringProperty()
-	MSRP = ndb.StringProperty()
-	MPG = ndb.StringProperty()
 
 
 class MainPage(webapp2.RequestHandler):
@@ -49,69 +43,6 @@ class MainPage(webapp2.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'pages/mainPage.html')
 		#inject the url into the url variable in the html
         self.response.out.write(template.render(path, page_values))
-
-class OAuthHandler(webapp2.RequestHandler):
-    def get(self):
-		#save the returned authorization code
-        auth_code = self.request.GET['code']
-		#save the returned state
-        state = self.request.GET['state']
-		#create the post info to get the token
-        post_body = {
-            'code': auth_code,
-            'client_id': CLIENT_ID,
-            'client_secret': CLIENT_SECRET,
-            'redirect_uri': REDIRECT_URI,
-            'grant_type': 'authorization_code'
-            }
-
-        payload = urllib.urlencode(post_body)
-        headers = {'Content-Type':'application/x-www-form-urlencoded'}
-		#send the data to get the info
-        result = urlfetch.fetch(
-            url="https://www.googleapis.com/oauth2/v4/token",
-   		 	payload = payload,
-    		method = urlfetch.POST,
-    		headers = headers)
-
-        json_result = json.loads(result.content)
-		#save the token
-        headers = {'Authorization': 'Bearer ' + json_result['access_token']}
-		#get the user's information
-        result = urlfetch.fetch(
-            url="https://www.googleapis.com/plus/v1/people/me",
-            method = urlfetch.GET,
-            headers=headers)
-		#get results of Google+ profile
-		json_result = json.loads(result.content)
-		#set user variables
-        user_id = json_result['id']
-        fname = json_result['name']['givenName']
-        lname = json_result['name']['familyName']
-        email = json_result['emails'][0]['value']
-		#save data for outputting to webpage
-        template_values = {'fname': fname,
-                           'lname': lname,
-                           'user_id': user_id}
-
-       #check if the user exists
-        user_exists = False
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-		#if the user does not exist
-        if not user_exists:
-            new_User = UserAccount()
-            new_User.user_id = user_id
-            new_User.fname = fname
-            new_User.lname = lname
-            new_User.email = email
-            new_User.put()
-            new_User.id = str(new_User.key.urlsafe())
-            new_User.put()
-		#add values to webpage
-        path = os.path.join(os.path.dirname(__file__), 'pages/oauth.html')
-        self.response.out.write(template.render(path, template_values))
 
 #page handling info
 app = webapp2.WSGIApplication([
