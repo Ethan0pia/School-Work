@@ -1,0 +1,2973 @@
+{
+	"id": "2eb76868-43cd-464c-8a33-f02ea5dd5821",
+	"name": "REST Planning and Implementation",
+	"allTests": [],
+	"timestamp": "2018-01-17T03:16:12.251Z",
+	"collection_id": "555c97e4-cc56-e55b-6861-cd844676eaa1",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "no-environment",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "555c97e4-cc56-e55b-6861-cd844676eaa1",
+		"name": "REST Planning and Implementation",
+		"description": "",
+		"order": [
+			"16ae8b7f-a50a-9305-9dfb-242f8ea95b29",
+			"d5a40bd6-5da0-cd68-b092-c957bf995fee",
+			"477488d3-bb1b-9f37-2d17-e503d29aad3e",
+			"5e5e6015-4d2e-52cd-c322-9a1fbed44111",
+			"6e29d337-00d0-3fbc-8ccd-9a4e04821305",
+			"b9f8d3b8-56a3-6c2a-a018-dbdff06eb217",
+			"d8ca6bd3-aa1e-643d-3892-f2618a24c094",
+			"fd374631-6a00-6981-4fca-c41479dffedd",
+			"ca8a4a01-ae8f-9f05-c981-33355613ecd8",
+			"ce520238-ece4-c4f9-43ca-b5fb1e58b7b4",
+			"a439aeff-b42e-868b-f537-4bdcba28a395",
+			"3b2dfb84-06ca-86b7-e39f-0a4dca19fad7",
+			"33dffc5f-59fa-6f17-ef20-04bd3693d005",
+			"5f1ec1b9-b92c-238b-b96a-e0eb7c018e65",
+			"0767c89c-be53-655b-baca-f6b91ac34521",
+			"8c4b4abf-5d85-f281-1ca8-a57d776fa496",
+			"46626150-0f19-11c6-d55a-a71ef2c539a0",
+			"885082c3-21bc-5ee1-6721-734ec499d160",
+			"45c05a2e-df6a-ee92-6798-8e29b79ee414",
+			"2e1fc37b-e369-4979-9635-f8706babe363",
+			"71e5534a-4d40-d7d3-0651-8eac3bea61c5",
+			"64941f5e-1449-7454-0256-7886b87ead78",
+			"3280d23f-92d6-91f5-9234-94d04b50d93d",
+			"3a7e0b50-f0bd-328f-9c6b-7f70ed535d90",
+			"443e9e49-9a3b-532d-182b-d8dc957fe4b0",
+			"232e89bd-d5ee-b9d8-52e4-c72a2f802cfc",
+			"8e476c6a-168a-2e68-bf65-69192ff019ae",
+			"143eb7b6-97cb-a959-ea08-5e7ea8057876",
+			"1405ef57-fb21-63f6-c50f-c22f7db47233",
+			"f6a5c70b-2d1e-6040-6fe4-927b5e89e28a",
+			"2de2b53a-e432-dec5-abb0-84a0e3d5efa8",
+			"44f08e19-b108-bcf0-7c06-0ec6906168d0",
+			"af409f68-c311-95b9-60f6-6cab721ccf3c",
+			"2da8ccf4-cb6f-fc75-52ca-3cba30084654",
+			"d5cadd01-53c7-fe86-8723-fdc0530eabcc",
+			"92e61264-6ecd-2464-4a12-82528380d7b2",
+			"f1dfbff3-a1c3-543d-9b44-c6c1cbba3c98",
+			"f32416ce-2269-20ec-aec8-356cd55cba1a",
+			"b036859b-fe19-2149-5216-b83934fa78e3",
+			"13461aae-23cd-4f85-7431-2f600711a1a3",
+			"19dce813-dd16-1166-fe95-6a5772e4169b",
+			"d1f3f19d-33cd-52a6-ad23-1d5ea101309f",
+			"a07f8441-2ced-d103-b24c-5c950e816e7e",
+			"5da0384c-d1c2-3917-e0f8-0e74189f1857",
+			"5139d644-cbdb-e271-899b-8b5c061f912f",
+			"7bf8f084-7607-476e-556c-b4b6f5d2ee63",
+			"5980b21d-fd14-fd4d-637c-454d60b0c6e5",
+			"da13e076-8db8-e1aa-63cb-94f7719ba91e",
+			"d3eaac22-3678-9946-172f-e4e0d870fd46"
+		],
+		"folders": [],
+		"folders_order": [],
+		"timestamp": 0,
+		"synced": true,
+		"remote_id": 0,
+		"owner": "3506042",
+		"sharedWithTeam": false,
+		"subscribed": false,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"createdAt": 1516142480695,
+		"updatedAt": "2018-01-17T03:12:33.910Z",
+		"write": true,
+		"published": false,
+		"favorite": false,
+		"permissions": {},
+		"syncedPermissions": {},
+		"events": [],
+		"variables": [],
+		"auth": null
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [
+		{
+			"key": "gistKey",
+			"value": "f3b43e9b2b3f0ddf6c71bdf763528ddd",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "gistContents",
+			"value": "{\"url\":\"https://api.github.com/gists/f3b43e9b2b3f0ddf6c71bdf763528ddd\",\"forks_url\":\"https://api.github.com/gists/f3b43e9b2b3f0ddf6c71bdf763528ddd/forks\",\"commits_url\":\"https://api.github.com/gists/f3b43e9b2b3f0ddf6c71bdf763528ddd/commits\",\"id\":\"f3b43e9b2b3f0ddf6c71bdf763528ddd\",\"git_pull_url\":\"https://gist.github.com/f3b43e9b2b3f0ddf6c71bdf763528ddd.git\",\"git_push_url\":\"https://gist.github.com/f3b43e9b2b3f0ddf6c71bdf763528ddd.git\",\"html_url\":\"https://gist.github.com/f3b43e9b2b3f0ddf6c71bdf763528ddd\",\"files\":{\"file1.txt\":{\"filename\":\"file1.txt\",\"type\":\"text/plain\",\"language\":\"Text\",\"raw_url\":\"https://gist.githubusercontent.com/Ethan0pia/f3b43e9b2b3f0ddf6c71bdf763528ddd/raw/b087a4c57f47ffad4025004869d7366ddc82d0d1/file1.txt\",\"size\":20,\"truncated\":false,\"content\":\"String file contents\"}},\"public\":true,\"created_at\":\"2018-01-12T02:09:26Z\",\"updated_at\":\"2018-01-12T02:09:26Z\",\"description\":\"the description for this gist\",\"comments\":0,\"user\":null,\"comments_url\":\"https://api.github.com/gists/f3b43e9b2b3f0ddf6c71bdf763528ddd/comments\",\"owner\":{\"login\":\"Ethan0pia\",\"id\":25698723,\"avatar_url\":\"https://avatars1.githubusercontent.com/u/25698723?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/Ethan0pia\",\"html_url\":\"https://github.com/Ethan0pia\",\"followers_url\":\"https://api.github.com/users/Ethan0pia/followers\",\"following_url\":\"https://api.github.com/users/Ethan0pia/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/Ethan0pia/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/Ethan0pia/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/Ethan0pia/subscriptions\",\"organizations_url\":\"https://api.github.com/users/Ethan0pia/orgs\",\"repos_url\":\"https://api.github.com/users/Ethan0pia/repos\",\"events_url\":\"https://api.github.com/users/Ethan0pia/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/Ethan0pia/received_events\",\"type\":\"User\",\"site_admin\":false},\"forks\":[],\"history\":[{\"user\":{\"login\":\"Ethan0pia\",\"id\":25698723,\"avatar_url\":\"https://avatars1.githubusercontent.com/u/25698723?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/Ethan0pia\",\"html_url\":\"https://github.com/Ethan0pia\",\"followers_url\":\"https://api.github.com/users/Ethan0pia/followers\",\"following_url\":\"https://api.github.com/users/Ethan0pia/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/Ethan0pia/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/Ethan0pia/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/Ethan0pia/subscriptions\",\"organizations_url\":\"https://api.github.com/users/Ethan0pia/orgs\",\"repos_url\":\"https://api.github.com/users/Ethan0pia/repos\",\"events_url\":\"https://api.github.com/users/Ethan0pia/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/Ethan0pia/received_events\",\"type\":\"User\",\"site_admin\":false},\"version\":\"b661ece295645d4d8d0a3adc37fd4196e0a21d0e\",\"committed_at\":\"2018-01-12T02:09:25Z\",\"change_status\":{\"total\":1,\"additions\":1,\"deletions\":0},\"url\":\"https://api.github.com/gists/f3b43e9b2b3f0ddf6c71bdf763528ddd/b661ece295645d4d8d0a3adc37fd4196e0a21d0e\"}],\"truncated\":false}",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "starred",
+			"value": "[{\"url\":\"https://api.github.com/gists/a6e7d9fbb1ba8970c891e15c10dcd7e3\",\"forks_url\":\"https://api.github.com/gists/a6e7d9fbb1ba8970c891e15c10dcd7e3/forks\",\"commits_url\":\"https://api.github.com/gists/a6e7d9fbb1ba8970c891e15c10dcd7e3/commits\",\"id\":\"a6e7d9fbb1ba8970c891e15c10dcd7e3\",\"git_pull_url\":\"https://gist.github.com/a6e7d9fbb1ba8970c891e15c10dcd7e3.git\",\"git_push_url\":\"https://gist.github.com/a6e7d9fbb1ba8970c891e15c10dcd7e3.git\",\"html_url\":\"https://gist.github.com/a6e7d9fbb1ba8970c891e15c10dcd7e3\",\"files\":{\"file1.txt\":{\"filename\":\"file1.txt\",\"type\":\"text/plain\",\"language\":\"Text\",\"raw_url\":\"https://gist.githubusercontent.com/Ethan0pia/a6e7d9fbb1ba8970c891e15c10dcd7e3/raw/b087a4c57f47ffad4025004869d7366ddc82d0d1/file1.txt\",\"size\":20}},\"public\":true,\"created_at\":\"2018-01-12T02:09:18Z\",\"updated_at\":\"2018-01-12T02:09:21Z\",\"description\":\"the description for this gist\",\"comments\":0,\"user\":null,\"comments_url\":\"https://api.github.com/gists/a6e7d9fbb1ba8970c891e15c10dcd7e3/comments\",\"owner\":{\"login\":\"Ethan0pia\",\"id\":25698723,\"avatar_url\":\"https://avatars1.githubusercontent.com/u/25698723?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/Ethan0pia\",\"html_url\":\"https://github.com/Ethan0pia\",\"followers_url\":\"https://api.github.com/users/Ethan0pia/followers\",\"following_url\":\"https://api.github.com/users/Ethan0pia/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/Ethan0pia/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/Ethan0pia/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/Ethan0pia/subscriptions\",\"organizations_url\":\"https://api.github.com/users/Ethan0pia/orgs\",\"repos_url\":\"https://api.github.com/users/Ethan0pia/repos\",\"events_url\":\"https://api.github.com/users/Ethan0pia/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/Ethan0pia/received_events\",\"type\":\"User\",\"site_admin\":false},\"truncated\":false},{\"url\":\"https://api.github.com/gists/3118f7c7da7fca60780b7fcbf26442d2\",\"forks_url\":\"https://api.github.com/gists/3118f7c7da7fca60780b7fcbf26442d2/forks\",\"commits_url\":\"https://api.github.com/gists/3118f7c7da7fca60780b7fcbf26442d2/commits\",\"id\":\"3118f7c7da7fca60780b7fcbf26442d2\",\"git_pull_url\":\"https://gist.github.com/3118f7c7da7fca60780b7fcbf26442d2.git\",\"git_push_url\":\"https://gist.github.com/3118f7c7da7fca60780b7fcbf26442d2.git\",\"html_url\":\"https://gist.github.com/3118f7c7da7fca60780b7fcbf26442d2\",\"files\":{\"file1.txt\":{\"filename\":\"file1.txt\",\"type\":\"text/plain\",\"language\":\"Text\",\"raw_url\":\"https://gist.githubusercontent.com/Ethan0pia/3118f7c7da7fca60780b7fcbf26442d2/raw/b087a4c57f47ffad4025004869d7366ddc82d0d1/file1.txt\",\"size\":20}},\"public\":true,\"created_at\":\"2018-01-12T02:09:10Z\",\"updated_at\":\"2018-01-12T02:09:15Z\",\"description\":\"the description for this gist\",\"comments\":0,\"user\":null,\"comments_url\":\"https://api.github.com/gists/3118f7c7da7fca60780b7fcbf26442d2/comments\",\"owner\":{\"login\":\"Ethan0pia\",\"id\":25698723,\"avatar_url\":\"https://avatars1.githubusercontent.com/u/25698723?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/Ethan0pia\",\"html_url\":\"https://github.com/Ethan0pia\",\"followers_url\":\"https://api.github.com/users/Ethan0pia/followers\",\"following_url\":\"https://api.github.com/users/Ethan0pia/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/Ethan0pia/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/Ethan0pia/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/Ethan0pia/subscriptions\",\"organizations_url\":\"https://api.github.com/users/Ethan0pia/orgs\",\"repos_url\":\"https://api.github.com/users/Ethan0pia/repos\",\"events_url\":\"https://api.github.com/users/Ethan0pia/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/Ethan0pia/received_events\",\"type\":\"User\",\"site_admin\":false},\"truncated\":false}]",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "slipKey",
+			"value": "aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICA2fCSCgw",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "numSlips",
+			"value": 5,
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "boatKey",
+			"value": "aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "numBoats",
+			"value": 4,
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "boatKey2",
+			"value": "aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAvKGCCww",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "slipKey2",
+			"value": "aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw",
+			"enabled": true,
+			"type": "text"
+		}
+	],
+	"results": [
+		{
+			"name": "Set slip numbers",
+			"id": "16ae8b7f-a50a-9305-9dfb-242f8ea95b29",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Current Number of Slips": true
+			},
+			"testPassFailCounts": {
+				"Current Number of Slips": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"82"
+			],
+			"allTests": [
+				{
+					"Current Number of Slips": true
+				}
+			],
+			"time": "82",
+			"totalRequestTime": "82",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create new slip",
+			"id": "d5a40bd6-5da0-cd68-b092-c957bf995fee",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"New slip was created": true,
+				"Slip key set": true,
+				"Slip number correct": true
+			},
+			"testPassFailCounts": {
+				"New slip was created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip key set": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip number correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"217"
+			],
+			"allTests": [
+				{
+					"New slip was created": true,
+					"Slip key set": true,
+					"Slip number correct": true
+				}
+			],
+			"time": "217",
+			"totalRequestTime": "217",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create new slip - bad body",
+			"id": "477488d3-bb1b-9f37-2d17-e503d29aad3e",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"Bad Body Test": true
+			},
+			"testPassFailCounts": {
+				"Bad Body Test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"102"
+			],
+			"allTests": [
+				{
+					"Bad Body Test": true
+				}
+			],
+			"time": "102",
+			"totalRequestTime": "102",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create new slip - bad slip number",
+			"id": "5e5e6015-4d2e-52cd-c322-9a1fbed44111",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"tests": {
+				"Slip Number in Use": true
+			},
+			"testPassFailCounts": {
+				"Slip Number in Use": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"68"
+			],
+			"allTests": [
+				{
+					"Slip Number in Use": true
+				}
+			],
+			"time": "68",
+			"totalRequestTime": "68",
+			"iterationResults": {}
+		},
+		{
+			"name": "Check slip numbers",
+			"id": "6e29d337-00d0-3fbc-8ccd-9a4e04821305",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Total Number of Slips Increased": true
+			},
+			"testPassFailCounts": {
+				"Total Number of Slips Increased": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"62"
+			],
+			"allTests": [
+				{
+					"Total Number of Slips Increased": true
+				}
+			],
+			"time": "62",
+			"totalRequestTime": "62",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get a single slip",
+			"id": "b9f8d3b8-56a3-6c2a-a018-dbdff06eb217",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Getting One Slip": true,
+				"Correct Slip Returned": true
+			},
+			"testPassFailCounts": {
+				"Getting One Slip": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct Slip Returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"61"
+			],
+			"allTests": [
+				{
+					"Getting One Slip": true,
+					"Correct Slip Returned": true
+				}
+			],
+			"time": "61",
+			"totalRequestTime": "61",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get a single slip - bad slip id",
+			"id": "d8ca6bd3-aa1e-643d-3892-f2618a24c094",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyCA",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad Slip ID": true
+			},
+			"testPassFailCounts": {
+				"Bad Slip ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"63"
+			],
+			"allTests": [
+				{
+					"Bad Slip ID": true
+				}
+			],
+			"time": "63",
+			"totalRequestTime": "63",
+			"iterationResults": {}
+		},
+		{
+			"name": "Patch slip",
+			"id": "fd374631-6a00-6981-4fca-c41479dffedd",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Slip 'number' was updated": true
+			},
+			"testPassFailCounts": {
+				"Slip 'number' was updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"112"
+			],
+			"allTests": [
+				{
+					"Slip 'number' was updated": true
+				}
+			],
+			"time": "112",
+			"totalRequestTime": "112",
+			"iterationResults": {}
+		},
+		{
+			"name": "Patch slip - bad slip number",
+			"id": "ca8a4a01-ae8f-9f05-c981-33355613ecd8",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyCAw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad slip number": true
+			},
+			"testPassFailCounts": {
+				"Bad slip number": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"64"
+			],
+			"allTests": [
+				{
+					"Bad slip number": true
+				}
+			],
+			"time": "64",
+			"totalRequestTime": "64",
+			"iterationResults": {}
+		},
+		{
+			"name": "Patch slip - bad body",
+			"id": "ce520238-ece4-c4f9-43ca-b5fb1e58b7b4",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"Too many arguments": true
+			},
+			"testPassFailCounts": {
+				"Too many arguments": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"62"
+			],
+			"allTests": [
+				{
+					"Too many arguments": true
+				}
+			],
+			"time": "62",
+			"totalRequestTime": "62",
+			"iterationResults": {}
+		},
+		{
+			"name": "Patch slip - bad number",
+			"id": "a439aeff-b42e-868b-f537-4bdcba28a395",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"Not Enough Arguments": true
+			},
+			"testPassFailCounts": {
+				"Not Enough Arguments": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"66"
+			],
+			"allTests": [
+				{
+					"Not Enough Arguments": true
+				}
+			],
+			"time": "66",
+			"totalRequestTime": "66",
+			"iterationResults": {}
+		},
+		{
+			"name": "Patch slip - bad slip id",
+			"id": "3b2dfb84-06ca-86b7-e39f-0a4dca19fad7",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/qwfe1f12f3f23`4f",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad Slip ID": true
+			},
+			"testPassFailCounts": {
+				"Bad Slip ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"65"
+			],
+			"allTests": [
+				{
+					"Bad Slip ID": true
+				}
+			],
+			"time": "65",
+			"totalRequestTime": "65",
+			"iterationResults": {}
+		},
+		{
+			"name": "Set boat numbers",
+			"id": "33dffc5f-59fa-6f17-ef20-04bd3693d005",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Current Number of Slips": true
+			},
+			"testPassFailCounts": {
+				"Current Number of Slips": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"60"
+			],
+			"allTests": [
+				{
+					"Current Number of Slips": true
+				}
+			],
+			"time": "60",
+			"totalRequestTime": "60",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create new boat",
+			"id": "5f1ec1b9-b92c-238b-b96a-e0eb7c018e65",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"New boat was created": true,
+				"Boat key set": true,
+				"Boat name": true,
+				"Boat length": true,
+				"Boat type": true,
+				"Boat at sea": true
+			},
+			"testPassFailCounts": {
+				"New boat was created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat key set": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat length": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat type": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat at sea": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"165"
+			],
+			"allTests": [
+				{
+					"New boat was created": true,
+					"Boat key set": true,
+					"Boat name": true,
+					"Boat length": true,
+					"Boat type": true,
+					"Boat at sea": true
+				}
+			],
+			"time": "165",
+			"totalRequestTime": "165",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create new boat - bad body",
+			"id": "0767c89c-be53-655b-baca-f6b91ac34521",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"SUCCESS: error caught, bad body": true
+			},
+			"testPassFailCounts": {
+				"SUCCESS: error caught, bad body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"51"
+			],
+			"allTests": [
+				{
+					"SUCCESS: error caught, bad body": true
+				}
+			],
+			"time": "51",
+			"totalRequestTime": "51",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get all boats",
+			"id": "8c4b4abf-5d85-f281-1ca8-a57d776fa496",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Current Number of boats": true
+			},
+			"testPassFailCounts": {
+				"Current Number of boats": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"62"
+			],
+			"allTests": [
+				{
+					"Current Number of boats": true
+				}
+			],
+			"time": "62",
+			"totalRequestTime": "62",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get a single boat",
+			"id": "46626150-0f19-11c6-d55a-a71ef2c539a0",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"SUCCESS: single boat returned": true,
+				"Boat name check": true,
+				"Boat length check": true,
+				"Boat type check": true,
+				"Boat at sea check": true
+			},
+			"testPassFailCounts": {
+				"SUCCESS: single boat returned": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat name check": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat length check": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat type check": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat at sea check": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"62"
+			],
+			"allTests": [
+				{
+					"SUCCESS: single boat returned": true,
+					"Boat name check": true,
+					"Boat length check": true,
+					"Boat type check": true,
+					"Boat at sea check": true
+				}
+			],
+			"time": "62",
+			"totalRequestTime": "62",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get a single boat - bad boat id",
+			"id": "885082c3-21bc-5ee1-6721-734ec499d160",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aghkZXZ-Tm9uZXIRCxIEQm9hdBiAgICAgICKCA",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"SUCCESS: error caught, bad boat id": true
+			},
+			"testPassFailCounts": {
+				"SUCCESS: error caught, bad boat id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"67"
+			],
+			"allTests": [
+				{
+					"SUCCESS: error caught, bad boat id": true
+				}
+			],
+			"time": "67",
+			"totalRequestTime": "67",
+			"iterationResults": {}
+		},
+		{
+			"name": "Patch boat",
+			"id": "45c05a2e-df6a-ee92-6798-8e29b79ee414",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Boat 'name' updated": true
+			},
+			"testPassFailCounts": {
+				"Boat 'name' updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"103"
+			],
+			"allTests": [
+				{
+					"Boat 'name' updated": true
+				}
+			],
+			"time": "103",
+			"totalRequestTime": "103",
+			"iterationResults": {}
+		},
+		{
+			"name": "Patch boat - bad body",
+			"id": "2e1fc37b-e369-4979-9635-f8706babe363",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"Too many arguments": true
+			},
+			"testPassFailCounts": {
+				"Too many arguments": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"65"
+			],
+			"allTests": [
+				{
+					"Too many arguments": true
+				}
+			],
+			"time": "65",
+			"totalRequestTime": "65",
+			"iterationResults": {}
+		},
+		{
+			"name": "Patch boat - bad body",
+			"id": "71e5534a-4d40-d7d3-0651-8eac3bea61c5",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"Bad info": true
+			},
+			"testPassFailCounts": {
+				"Bad info": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"64"
+			],
+			"allTests": [
+				{
+					"Bad info": true
+				}
+			],
+			"time": "64",
+			"totalRequestTime": "64",
+			"iterationResults": {}
+		},
+		{
+			"name": "Patch boat - bad boat id",
+			"id": "64941f5e-1449-7454-0256-7886b87ead78",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/evwfe2ff132f",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad boat id": true
+			},
+			"testPassFailCounts": {
+				"Bad boat id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"61"
+			],
+			"allTests": [
+				{
+					"Bad boat id": true
+				}
+			],
+			"time": "61",
+			"totalRequestTime": "61",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat",
+			"id": "3280d23f-92d6-91f5-9234-94d04b50d93d",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Boat 'name', 'type', and 'length' were updated": true
+			},
+			"testPassFailCounts": {
+				"Boat 'name', 'type', and 'length' were updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"100"
+			],
+			"allTests": [
+				{
+					"Boat 'name', 'type', and 'length' were updated": true
+				}
+			],
+			"time": "100",
+			"totalRequestTime": "100",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat - bad body",
+			"id": "3a7e0b50-f0bd-328f-9c6b-7f70ed535d90",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"Bad body": true
+			},
+			"testPassFailCounts": {
+				"Bad body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"79"
+			],
+			"allTests": [
+				{
+					"Bad body": true
+				}
+			],
+			"time": "79",
+			"totalRequestTime": "79",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat - bad boat id",
+			"id": "443e9e49-9a3b-532d-182b-d8dc957fe4b0",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/wedwdewedwed12",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad boat id": true
+			},
+			"testPassFailCounts": {
+				"Bad boat id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"82"
+			],
+			"allTests": [
+				{
+					"Bad boat id": true
+				}
+			],
+			"time": "82",
+			"totalRequestTime": "82",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat in slip",
+			"id": "232e89bd-d5ee-b9d8-52e4-c72a2f802cfc",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Add boat to slip": true
+			},
+			"testPassFailCounts": {
+				"Add boat to slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"253"
+			],
+			"allTests": [
+				{
+					"Add boat to slip": true
+				}
+			],
+			"time": "253",
+			"totalRequestTime": "253",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat in slip - bad body",
+			"id": "8e476c6a-168a-2e68-bf65-69192ff019ae",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"Bad body": true
+			},
+			"testPassFailCounts": {
+				"Bad body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"62"
+			],
+			"allTests": [
+				{
+					"Bad body": true
+				}
+			],
+			"time": "62",
+			"totalRequestTime": "62",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat in slip - bad slip id",
+			"id": "143eb7b6-97cb-a959-ea08-5e7ea8057876",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEQm9hdBiAgICAgIDyC/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad slip id": true
+			},
+			"testPassFailCounts": {
+				"Bad slip id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"63"
+			],
+			"allTests": [
+				{
+					"Bad slip id": true
+				}
+			],
+			"time": "63",
+			"totalRequestTime": "63",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat in slip - bad boat id",
+			"id": "1405ef57-fb21-63f6-c50f-c22f7db47233",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad boat id": true
+			},
+			"testPassFailCounts": {
+				"Bad boat id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"82"
+			],
+			"allTests": [
+				{
+					"Bad boat id": true
+				}
+			],
+			"time": "82",
+			"totalRequestTime": "82",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create new slip for occupied",
+			"id": "f6a5c70b-2d1e-6040-6fe4-927b5e89e28a",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"New slip was created": true,
+				"Slip key 2 set": true,
+				"Slip number correct": true
+			},
+			"testPassFailCounts": {
+				"New slip was created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip key 2 set": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip number correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"149"
+			],
+			"allTests": [
+				{
+					"New slip was created": true,
+					"Slip key 2 set": true,
+					"Slip number correct": true
+				}
+			],
+			"time": "149",
+			"totalRequestTime": "149",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create new boat for slip",
+			"id": "2de2b53a-e432-dec5-abb0-84a0e3d5efa8",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"New boat was created": true,
+				"Boat key 2 set": true
+			},
+			"testPassFailCounts": {
+				"New boat was created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat key 2 set": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"255"
+			],
+			"allTests": [
+				{
+					"New boat was created": true,
+					"Boat key 2 set": true
+				}
+			],
+			"time": "255",
+			"totalRequestTime": "255",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat in slip - occupied slip",
+			"id": "44f08e19-b108-bcf0-7c06-0ec6906168d0",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"tests": {
+				"Occupied slip": true
+			},
+			"testPassFailCounts": {
+				"Occupied slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"87"
+			],
+			"allTests": [
+				{
+					"Occupied slip": true
+				}
+			],
+			"time": "87",
+			"totalRequestTime": "87",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat in slip to test occupied",
+			"id": "af409f68-c311-95b9-60f6-6cab721ccf3c",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Move boat to slip": true
+			},
+			"testPassFailCounts": {
+				"Move boat to slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"199"
+			],
+			"allTests": [
+				{
+					"Move boat to slip": true
+				}
+			],
+			"time": "199",
+			"totalRequestTime": "199",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat in slip - boat already in slip",
+			"id": "2da8ccf4-cb6f-fc75-52ca-3cba30084654",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"tests": {
+				"Boat already in a slip": true
+			},
+			"testPassFailCounts": {
+				"Boat already in a slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"83"
+			],
+			"allTests": [
+				{
+					"Boat already in a slip": true
+				}
+			],
+			"time": "83",
+			"totalRequestTime": "83",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get boat in slip",
+			"id": "d5cadd01-53c7-fe86-8723-fdc0530eabcc",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Boat in slip returned": true
+			},
+			"testPassFailCounts": {
+				"Boat in slip returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"91"
+			],
+			"allTests": [
+				{
+					"Boat in slip returned": true
+				}
+			],
+			"time": "91",
+			"totalRequestTime": "91",
+			"iterationResults": {}
+		},
+		{
+			"name": "Send boat to sea",
+			"id": "92e61264-6ecd-2464-4a12-82528380d7b2",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Send boat to sea": true
+			},
+			"testPassFailCounts": {
+				"Send boat to sea": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"194"
+			],
+			"allTests": [
+				{
+					"Send boat to sea": true
+				}
+			],
+			"time": "194",
+			"totalRequestTime": "194",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get boat in slip - empty slip",
+			"id": "f1dfbff3-a1c3-543d-9b44-c6c1cbba3c98",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"No boat in slip": true
+			},
+			"testPassFailCounts": {
+				"No boat in slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"71"
+			],
+			"allTests": [
+				{
+					"No boat in slip": true
+				}
+			],
+			"time": "71",
+			"totalRequestTime": "71",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get boat in slip - bad slip id",
+			"id": "f32416ce-2269-20ec-aec8-356cd55cba1a",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgIgICsCg/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad slip id": true
+			},
+			"testPassFailCounts": {
+				"Bad slip id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"67"
+			],
+			"allTests": [
+				{
+					"Bad slip id": true
+				}
+			],
+			"time": "67",
+			"totalRequestTime": "67",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete boat in slip - no boat",
+			"id": "b036859b-fe19-2149-5216-b83934fa78e3",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"tests": {
+				"No boat in slip": true
+			},
+			"testPassFailCounts": {
+				"No boat in slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"64"
+			],
+			"allTests": [
+				{
+					"No boat in slip": true
+				}
+			],
+			"time": "64",
+			"totalRequestTime": "64",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete boat in slip - bad slip id",
+			"id": "13461aae-23cd-4f85-7431-2f600711a1a3",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyCg/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad slip id": true
+			},
+			"testPassFailCounts": {
+				"Bad slip id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"63"
+			],
+			"allTests": [
+				{
+					"Bad slip id": true
+				}
+			],
+			"time": "63",
+			"totalRequestTime": "63",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete slip",
+			"id": "19dce813-dd16-1166-fe95-6a5772e4169b",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Slip deleted": true
+			},
+			"testPassFailCounts": {
+				"Slip deleted": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"123"
+			],
+			"allTests": [
+				{
+					"Slip deleted": true
+				}
+			],
+			"time": "123",
+			"totalRequestTime": "123",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete slip - send boat to sea",
+			"id": "d1f3f19d-33cd-52a6-ad23-1d5ea101309f",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Slip was deleted and boat sent out to sea": true
+			},
+			"testPassFailCounts": {
+				"Slip was deleted and boat sent out to sea": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"160"
+			],
+			"allTests": [
+				{
+					"Slip was deleted and boat sent out to sea": true
+				}
+			],
+			"time": "160",
+			"totalRequestTime": "160",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete slip - bad slip id",
+			"id": "a07f8441-2ced-d103-b24c-5c950e816e7e",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyC",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad slip id": true
+			},
+			"testPassFailCounts": {
+				"Bad slip id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"68"
+			],
+			"allTests": [
+				{
+					"Bad slip id": true
+				}
+			],
+			"time": "68",
+			"totalRequestTime": "68",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete boat",
+			"id": "5da0384c-d1c2-3917-e0f8-0e74189f1857",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Boat was deleted": true
+			},
+			"testPassFailCounts": {
+				"Boat was deleted": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"105"
+			],
+			"allTests": [
+				{
+					"Boat was deleted": true
+				}
+			],
+			"time": "105",
+			"totalRequestTime": "105",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create new slip",
+			"id": "5139d644-cbdb-e271-899b-8b5c061f912f",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"New slip was created": true,
+				"Slip key set": true,
+				"Slip number correct": true
+			},
+			"testPassFailCounts": {
+				"New slip was created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip key set": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip number correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"243"
+			],
+			"allTests": [
+				{
+					"New slip was created": true,
+					"Slip key set": true,
+					"Slip number correct": true
+				}
+			],
+			"time": "243",
+			"totalRequestTime": "243",
+			"iterationResults": {}
+		},
+		{
+			"name": "Put boat in slip",
+			"id": "7bf8f084-7607-476e-556c-b4b6f5d2ee63",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICA2fCSCgw/boat",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Boat was brought in from sea and added to slip": true
+			},
+			"testPassFailCounts": {
+				"Boat was brought in from sea and added to slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"165"
+			],
+			"allTests": [
+				{
+					"Boat was brought in from sea and added to slip": true
+				}
+			],
+			"time": "165",
+			"totalRequestTime": "165",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete boat - empty slip",
+			"id": "5980b21d-fd14-fd4d-637c-454d60b0c6e5",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAvKGCCww",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Boat was deleted and slip emptied": true
+			},
+			"testPassFailCounts": {
+				"Boat was deleted and slip emptied": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"146"
+			],
+			"allTests": [
+				{
+					"Boat was deleted and slip emptied": true
+				}
+			],
+			"time": "146",
+			"totalRequestTime": "146",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete boat - bad boat id",
+			"id": "da13e076-8db8-e1aa-63cb-94f7719ba91e",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aghkZXZTm9uZXIRCxIEQm9hdBiAgICAgICKC",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"Bad boat id": true
+			},
+			"testPassFailCounts": {
+				"Bad boat id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"63"
+			],
+			"allTests": [
+				{
+					"Bad boat id": true
+				}
+			],
+			"time": "63",
+			"totalRequestTime": "63",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete slip",
+			"id": "d3eaac22-3678-9946-172f-e4e0d870fd46",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICA2fCSCgw",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Slip deleted": true
+			},
+			"testPassFailCounts": {
+				"Slip deleted": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"175"
+			],
+			"allTests": [
+				{
+					"Slip deleted": true
+				}
+			],
+			"time": "175",
+			"totalRequestTime": "175",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 66,
+	"totalFail": 0,
+	"totalTime": 5076,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Set slip numbers",
+			"id": "16ae8b7f-a50a-9305-9dfb-242f8ea95b29",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Current Number of Slips": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create new slip",
+			"id": "d5a40bd6-5da0-cd68-b092-c957bf995fee",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"New slip was created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip key set": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip number correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create new slip - bad body",
+			"id": "477488d3-bb1b-9f37-2d17-e503d29aad3e",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad Body Test": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create new slip - bad slip number",
+			"id": "5e5e6015-4d2e-52cd-c322-9a1fbed44111",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"testPassFailCounts": {
+				"Slip Number in Use": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Check slip numbers",
+			"id": "6e29d337-00d0-3fbc-8ccd-9a4e04821305",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Total Number of Slips Increased": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get a single slip",
+			"id": "b9f8d3b8-56a3-6c2a-a018-dbdff06eb217",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Getting One Slip": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct Slip Returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get a single slip - bad slip id",
+			"id": "d8ca6bd3-aa1e-643d-3892-f2618a24c094",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyCA",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad Slip ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Patch slip",
+			"id": "fd374631-6a00-6981-4fca-c41479dffedd",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Slip 'number' was updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Patch slip - bad slip number",
+			"id": "ca8a4a01-ae8f-9f05-c981-33355613ecd8",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyCAw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad slip number": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Patch slip - bad body",
+			"id": "ce520238-ece4-c4f9-43ca-b5fb1e58b7b4",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Too many arguments": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Patch slip - bad number",
+			"id": "a439aeff-b42e-868b-f537-4bdcba28a395",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Not Enough Arguments": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Patch slip - bad slip id",
+			"id": "3b2dfb84-06ca-86b7-e39f-0a4dca19fad7",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/qwfe1f12f3f23`4f",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad Slip ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Set boat numbers",
+			"id": "33dffc5f-59fa-6f17-ef20-04bd3693d005",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Current Number of Slips": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create new boat",
+			"id": "5f1ec1b9-b92c-238b-b96a-e0eb7c018e65",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"New boat was created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat key set": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat length": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat type": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat at sea": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create new boat - bad body",
+			"id": "0767c89c-be53-655b-baca-f6b91ac34521",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"SUCCESS: error caught, bad body": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get all boats",
+			"id": "8c4b4abf-5d85-f281-1ca8-a57d776fa496",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Current Number of boats": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get a single boat",
+			"id": "46626150-0f19-11c6-d55a-a71ef2c539a0",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"SUCCESS: single boat returned": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat name check": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat length check": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat type check": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat at sea check": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get a single boat - bad boat id",
+			"id": "885082c3-21bc-5ee1-6721-734ec499d160",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aghkZXZ-Tm9uZXIRCxIEQm9hdBiAgICAgICKCA",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"SUCCESS: error caught, bad boat id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Patch boat",
+			"id": "45c05a2e-df6a-ee92-6798-8e29b79ee414",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Boat 'name' updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Patch boat - bad body",
+			"id": "2e1fc37b-e369-4979-9635-f8706babe363",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Too many arguments": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Patch boat - bad body",
+			"id": "71e5534a-4d40-d7d3-0651-8eac3bea61c5",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad info": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Patch boat - bad boat id",
+			"id": "64941f5e-1449-7454-0256-7886b87ead78",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/evwfe2ff132f",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad boat id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat",
+			"id": "3280d23f-92d6-91f5-9234-94d04b50d93d",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Boat 'name', 'type', and 'length' were updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat - bad body",
+			"id": "3a7e0b50-f0bd-328f-9c6b-7f70ed535d90",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad body": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat - bad boat id",
+			"id": "443e9e49-9a3b-532d-182b-d8dc957fe4b0",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/wedwdewedwed12",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad boat id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat in slip",
+			"id": "232e89bd-d5ee-b9d8-52e4-c72a2f802cfc",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Add boat to slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat in slip - bad body",
+			"id": "8e476c6a-168a-2e68-bf65-69192ff019ae",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad body": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat in slip - bad slip id",
+			"id": "143eb7b6-97cb-a959-ea08-5e7ea8057876",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEQm9hdBiAgICAgIDyC/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad slip id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat in slip - bad boat id",
+			"id": "1405ef57-fb21-63f6-c50f-c22f7db47233",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad boat id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create new slip for occupied",
+			"id": "f6a5c70b-2d1e-6040-6fe4-927b5e89e28a",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"New slip was created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip key 2 set": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip number correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create new boat for slip",
+			"id": "2de2b53a-e432-dec5-abb0-84a0e3d5efa8",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"New boat was created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Boat key 2 set": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat in slip - occupied slip",
+			"id": "44f08e19-b108-bcf0-7c06-0ec6906168d0",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"testPassFailCounts": {
+				"Occupied slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat in slip to test occupied",
+			"id": "af409f68-c311-95b9-60f6-6cab721ccf3c",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Move boat to slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat in slip - boat already in slip",
+			"id": "2da8ccf4-cb6f-fc75-52ca-3cba30084654",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"testPassFailCounts": {
+				"Boat already in a slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get boat in slip",
+			"id": "d5cadd01-53c7-fe86-8723-fdc0530eabcc",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Boat in slip returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Send boat to sea",
+			"id": "92e61264-6ecd-2464-4a12-82528380d7b2",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Send boat to sea": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get boat in slip - empty slip",
+			"id": "f1dfbff3-a1c3-543d-9b44-c6c1cbba3c98",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"No boat in slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get boat in slip - bad slip id",
+			"id": "f32416ce-2269-20ec-aec8-356cd55cba1a",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgIgICsCg/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad slip id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete boat in slip - no boat",
+			"id": "b036859b-fe19-2149-5216-b83934fa78e3",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"testPassFailCounts": {
+				"No boat in slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete boat in slip - bad slip id",
+			"id": "13461aae-23cd-4f85-7431-2f600711a1a3",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyCg/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad slip id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete slip",
+			"id": "19dce813-dd16-1166-fe95-6a5772e4169b",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAq--WCQw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Slip deleted": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete slip - send boat to sea",
+			"id": "d1f3f19d-33cd-52a6-ad23-1d5ea101309f",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICAuqiOCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Slip was deleted and boat sent out to sea": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete slip - bad slip id",
+			"id": "a07f8441-2ced-d103-b24c-5c950e816e7e",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyC",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad slip id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete boat",
+			"id": "5da0384c-d1c2-3917-e0f8-0e74189f1857",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAmeeDCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Boat was deleted": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create new slip",
+			"id": "5139d644-cbdb-e271-899b-8b5c061f912f",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"New slip was created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip key set": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Slip number correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Put boat in slip",
+			"id": "7bf8f084-7607-476e-556c-b4b6f5d2ee63",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICA2fCSCgw/boat",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Boat was brought in from sea and added to slip": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete boat - empty slip",
+			"id": "5980b21d-fd14-fd4d-637c-454d60b0c6e5",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEQm9hdBiAgICAvKGCCww",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Boat was deleted and slip emptied": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete boat - bad boat id",
+			"id": "da13e076-8db8-e1aa-63cb-94f7719ba91e",
+			"url": "https://rest-api-implementation-192321.appspot.com/boats/aghkZXZTm9uZXIRCxIEQm9hdBiAgICAgICKC",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Bad boat id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete slip",
+			"id": "d3eaac22-3678-9946-172f-e4e0d870fd46",
+			"url": "https://rest-api-implementation-192321.appspot.com/slips/aiBzfnJlc3QtYXBpLWltcGxlbWVudGF0aW9uLTE5MjMyMXIRCxIEU2xpcBiAgICA2fCSCgw",
+			"time": "2018-01-17T03:16:12.251Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Slip deleted": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}

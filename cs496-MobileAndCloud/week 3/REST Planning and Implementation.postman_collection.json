@@ -1,0 +1,1418 @@
+{
+	"info": {
+		"name": "REST Planning and Implementation",
+		"_postman_id": "555c97e4-cc56-e55b-6861-cd844676eaa1",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Set slip numbers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d35fddee-ef53-49a0-81ee-82789366d893",
+						"type": "text/javascript",
+						"exec": [
+							"var obj = JSON.parse(responseBody);",
+							"pm.globals.set(\"numSlips\", obj.length);",
+							"tests[\"Current Number of Slips\"] = obj.length==pm.globals.get(\"numSlips\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d0e947b9-061d-454b-ad99-9094fb4b19bd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"New slip was created\"] = responseBody.has(\"id\") && responseBody.has(\"number\") && responseBody.has(\"current_boat\") && responseBody.has(\"arrival_date\") && responseBody.has(\"self\") && responseCode.code === 200;",
+							"",
+							"var obj = JSON.parse(responseBody);",
+							"pm.globals.set(\"slipKey\", obj.id);",
+							"tests[\"Slip key set\"] = obj.id==pm.globals.get(\"slipKey\");",
+							"",
+							"tests[\"Slip number correct\"] = obj.number==6;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"number\": 6}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips",
+				"description": "Create new slip"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new slip - bad body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "80a069a1-d99f-40b4-ab43-ad106bf4e39a",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad Body Test\"] = responseBody.has(\"ERROR: the expected format is {\\\"number\\\": int}.\") && responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"badStuff\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips",
+				"description": "Create new slip"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new slip - bad slip number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f775833a-7655-4f78-9ca7-e84d531e7bf8",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Slip Number in Use\"] = responseBody.has(\"ERROR: that slip number is already in use.\") && responseCode.code === 403;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"number\": 6}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips",
+				"description": "Create new slip"
+			},
+			"response": []
+		},
+		{
+			"name": "Check slip numbers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "660c3f47-bcfc-478d-9bf4-01cef4a0a4a3",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"var counter = Object.keys(data).length;",
+							"tests[\"Total Number of Slips Increased\"] = counter == pm.globals.get(\"numSlips\")+1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d6d5929f-bc01-47e5-a3a9-74bbfb6d87c9",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Getting One Slip\"] = responseBody.has(\"id\") && responseBody.has(\"number\") && responseBody.has(\"current_boat\") && responseBody.has(\"arrival_date\") && responseBody.has(\"self\") && responseCode.code === 200;",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Correct Slip Returned\"] = data.id == pm.globals.get(\"slipKey\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single slip - bad slip id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8638bea8-3895-4f5a-9228-e86239c6e6a9",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad Slip ID\"] = responseBody.has(\"ERROR: a slip with that ID does not exist\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyCA"
+			},
+			"response": []
+		},
+		{
+			"name": "Patch slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5bf1916f-535b-43d5-b204-8be369efbb68",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Slip 'number' was updated\"] = responseBody.has(\"SUCCESS: the slip 'number' was updated.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"number\": 12}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Patch slip - bad slip number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f43472df-b546-4322-aacc-89ace679e72e",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad slip number\"] = responseBody.has(\"ERROR: a slip with that ID does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"number\": 3}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyCAw"
+			},
+			"response": []
+		},
+		{
+			"name": "Patch slip - bad body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0268816-75d9-474b-b822-330d758bc250",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Too many arguments\"] = responseBody.has(\"ERROR: the expected format is {\\\"number\\\": int}.\") && responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"number\": 5, \"id\": \"badInfo\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Patch slip - bad number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "92850d0d-6768-416c-976d-090c9560dc6a",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Not Enough Arguments\"] = responseBody.has(\"ERROR: the expected format is {\\\"number\\\": int}.\") && responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"badInfo\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Patch slip - bad slip id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f1260a9-b1c5-4786-9006-a577fea3e9b2",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad Slip ID\"] = responseBody.has(\"ERROR: a slip with that ID does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"number\": 5}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/qwfe1f12f3f23`4f"
+			},
+			"response": []
+		},
+		{
+			"name": "Set boat numbers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6dccf12a-d54f-40fa-a9cb-9210af6ca1b2",
+						"type": "text/javascript",
+						"exec": [
+							"var obj = JSON.parse(responseBody);",
+							"pm.globals.set(\"numBoats\", obj.length);",
+							"tests[\"Current Number of Slips\"] = obj.length==pm.globals.get(\"numBoats\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new boat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6861205-aa73-4582-9ae2-fdd0e2911a48",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"New boat was created\"] = responseBody.has(\"id\") && responseBody.has(\"name\") && responseBody.has(\"length\") && responseBody.has(\"type\")  && responseBody.has(\"at_sea\") && responseBody.has(\"self\") && responseCode.code === 200;",
+							"",
+							"var obj = JSON.parse(responseBody);",
+							"pm.globals.set(\"boatKey\", obj.id);",
+							"tests[\"Boat key set\"] = obj.id==pm.globals.get(\"boatKey\");",
+							"",
+							"tests[\"Boat name\"] = obj.name==\"boatyMcBoatington\";",
+							"tests[\"Boat length\"] = obj.length==43;",
+							"tests[\"Boat type\"] = obj.type==\"raft\";",
+							"tests[\"Boat at sea\"] = obj.at_sea;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"boatyMcBoatington\", \"length\": 43, \"type\": \"raft\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats",
+				"description": "Create new boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new boat - bad body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "58d40773-4372-4752-b6f4-4507b9938814",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad body\"] = responseBody.has(\"ERROR: the expected format is {\\\"name\\\": \\\"str\\\", \\\"length\\\": int, \\\"type\\\": \\\"str\\\"}.\") && responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"badid\", \"length\": 44, \"type\": \"jetboat\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats",
+				"description": "Create new boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all boats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fabb96b-f2c0-479a-ad7b-700b20935482",
+						"type": "text/javascript",
+						"exec": [
+							"var obj = JSON.parse(responseBody);",
+							"tests[\"Current Number of boats\"] = obj.length==pm.globals.get(\"numBoats\")+1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single boat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "85ba99dc-4f6b-4fb1-91e0-7e430c5aa2a8",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Single boat returned\"] = responseBody.has(\"id\") && responseBody.has(\"name\") && responseBody.has(\"length\") && responseBody.has(\"type\")  && responseBody.has(\"at_sea\") && responseBody.has(\"self\") && responseCode.code === 200;",
+							"",
+							"var obj = JSON.parse(responseBody);",
+							"",
+							"tests[\"Boat name check\"] = obj.name==\"boatyMcBoatington\";",
+							"tests[\"Boat length check\"] = obj.length==43;",
+							"tests[\"Boat type check\"] = obj.type==\"raft\";",
+							"tests[\"Boat at sea check\"] = obj.at_sea;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/{{boatKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single boat - bad boat id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "973c301d-8a2a-4cc5-81b4-5c333b803336",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad boat id\"] = responseBody.has(\"ERROR: a boat with that id does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/aghkZXZ-Tm9uZXIRCxIEQm9hdBiAgICAgICKCA"
+			},
+			"response": []
+		},
+		{
+			"name": "Patch boat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d024332c-3cfd-4c33-a627-5202fedb3feb",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Boat 'name' updated\"] = responseBody.has(\"SUCCESS: the boat's 'name' was updated.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"crazy\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/{{boatKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Patch boat - bad body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7dc1e000-fdb3-4425-bc2c-6664f2d80b4d",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Too many arguments\"] = responseBody.has(\"ERROR: the expected format is {\\\"name\\\": \\\"str\\\"} or {\\\"length\\\": int} or {\\\"type\\\": \\\"str\\\"}.\") && responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"crazy\", \"length\": 43}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/{{boatKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Patch boat - bad body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42ad40cc-67bb-447d-bc34-e8f7d9005563",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad info\"] = responseBody.has(\"ERROR: the expected format is {\\\"name\\\": \\\"str\\\"} or {\\\"length\\\": int} or {\\\"type\\\": \\\"str\\\"}.\") && responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"badid\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/{{boatKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Patch boat - bad boat id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1d98e0ad-32dd-444a-a178-af037fd083a7",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad boat id\"] = responseBody.has(\"ERROR: a boat with that ID does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"randomName\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/evwfe2ff132f"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ebe02f76-576d-4be9-badc-8338306ec84e",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Boat 'name', 'type', and 'length' were updated\"] = responseBody.has(\"SUCCESS: the boat's 'name', 'type', and 'length' were updated.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"friday\", \"length\": 15, \"type\": \"skipper\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/{{boatKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat - bad body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "635bb9ac-9976-46f4-a237-b5e5672feaea",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad body\"] = responseBody.has(\"ERROR: the expected format is {\\\"name\\\": \\\"str\\\", \\\"length\\\": int, \\\"type\\\": \\\"str\\\"}.\") && responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"badid\", \"length\": 15, \"type\": \"skipper\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/{{boatKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat - bad boat id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3ca5d422-64df-4a47-bd2e-5aa004f8c573",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad boat id\"] = responseBody.has(\"ERROR: a boat with that ID does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"friday\", \"length\": 15, \"type\": \"skipper\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/wedwdewedwed12"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat in slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5dccb386-370f-48be-b5e6-b316d4b64acf",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Add boat to slip\"] = responseBody.has(\"SUCCESS: the boat was brought in from the sea and added to the slip.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current_boat\": \"{{boatKey}}\", \"arrival_date\": \"2017-09-08\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat in slip - bad body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bfd58c64-626b-45d1-9fbf-9c5d3409d66e",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad body\"] = responseBody.has(\"ERROR: the expected format is {\\\"current_boat\\\": \\\"boat_id\\\", \\\"arrival_date\\\": \\\"YYYY-MM-DD\\\"}.\") && responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current\": \"{{boatKey}}\", \"arrival_date\": \"2017-02-07\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat in slip - bad slip id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "81d1f8f3-0492-4cd5-a6a5-6ca1acbe4fa7",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad slip id\"] = responseBody.has(\"ERROR: a slip with that ID does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current_boat\": \"{{boatKey}}\", \"arrival_date\": \"2017-02-07\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEQm9hdBiAgICAgIDyC/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat in slip - bad boat id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1daa62be-0b44-4c1a-85dd-39bc2c0d906c",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad boat id\"] = responseBody.has(\"ERROR: a boat with that ID does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current_boat\": \"aghkZXZ-Tm9uZXIRCxIEQm9hdBiAgICAgIDyCg\", \"arrival_date\": \"2017-02-07\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new slip for occupied",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed93a6f5-cb18-466e-b58e-8e04eab80d79",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"New slip was created\"] = responseBody.has(\"id\") && responseBody.has(\"number\") && responseBody.has(\"current_boat\") && responseBody.has(\"arrival_date\") && responseBody.has(\"self\") && responseCode.code === 200;",
+							"",
+							"var obj = JSON.parse(responseBody);",
+							"pm.globals.set(\"slipKey2\", obj.id);",
+							"tests[\"Slip key 2 set\"] = obj.id==pm.globals.get(\"slipKey2\");",
+							"",
+							"tests[\"Slip number correct\"] = obj.number==6;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"number\": 6}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips",
+				"description": "Create new slip"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new boat for slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d0dc545a-bafb-44bf-91a9-c28a0a24bcd4",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"New boat was created\"] = responseBody.has(\"id\") && responseBody.has(\"name\") && responseBody.has(\"length\") && responseBody.has(\"type\")  && responseBody.has(\"at_sea\") && responseBody.has(\"self\") && responseCode.code === 200;",
+							"",
+							"var obj = JSON.parse(responseBody);",
+							"pm.globals.set(\"boatKey2\", obj.id);",
+							"tests[\"Boat key 2 set\"] = obj.id==pm.globals.get(\"boatKey2\")"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"boatyMcBoatington\", \"length\": 43, \"type\": \"raft\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats",
+				"description": "Create new boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat in slip - occupied slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fedcb49e-7f4e-4ddb-bf97-638eaff83fee",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Occupied slip\"] = responseBody.has(\"ERROR: that slip is already taken.\") && responseCode.code === 403;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current_boat\": \"{{boatKey2}}\", \"arrival_date\": \"2017-02-07\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat in slip to test occupied",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf87c9fd-8eb9-490b-8cc3-fa45b48bafcf",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Move boat to slip\"] = responseBody.has(\"SUCCESS: the boat was brought in from the sea and added to the slip.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current_boat\": \"{{boatKey2}}\", \"arrival_date\": \"2017-09-08\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey2}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat in slip - boat already in slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1e04d1b0-f37e-47e4-b09a-4f4627d0e9f0",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Boat already in a slip\"] = responseBody.has(\"ERROR: that boat is already assigned a slip. There is no reason to move it.\") && responseCode.code === 403;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current_boat\": \"{{boatKey}}\", \"arrival_date\": \"2017-02-07\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey2}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Get boat in slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62e66d42-4797-40d8-9da2-00bbd8e8d693",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Boat in slip returned\"] = responseBody.has(\"id\") && responseBody.has(\"name\") && responseBody.has(\"length\") && responseBody.has(\"type\")  && responseBody.has(\"at_sea\") && responseBody.has(\"self\") && responseCode.code === 200;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current_boat\": \"aghkZXZ-Tm9uZXIRCxIEQm9hdBiAgICAgIDUCAw\", \"arrival_date\": \"2017-09-08\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Send boat to sea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4c6eecf1-405e-458a-9d1c-d9313fee1652",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Send boat to sea\"] = responseBody.has(\"SUCCESS: the boat was removed from the slip and sent to sea.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey2}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Get boat in slip - empty slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "67c59a52-6b6e-456a-ae52-a122f93cd2d9",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No boat in slip\"] = responseBody.has(\"SUCCESS: there is no boat in slip\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current_boat\": \"aghkZXZ-Tm9uZXIRCxIEQm9hdBiAgICAgIDUCAw\", \"arrival_date\": \"2017-09-08\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey2}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Get boat in slip - bad slip id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1edde566-8b5b-4284-a03d-3b74fe34d0a7",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad slip id\"] = responseBody.has(\"ERROR: a slip with that ID does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current_boat\": \"aghkZXZ-Tm9uZXIRCxIEQm9hdBiAgICAgIDUCAw\", \"arrival_date\": \"2017-09-08\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgIgICsCg/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete boat in slip - no boat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "355ff544-ef19-43c7-86db-0c16538b2066",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No boat in slip\"] = responseBody.has(\"ERROR: there is no boat in that slip.\") && responseCode.code === 403;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey2}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete boat in slip - bad slip id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1013a6e2-5834-42a9-a81b-d720331babf3",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad slip id\"] = responseBody.has(\"ERROR: a slip with that ID does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyCg/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d56e293-1ea2-43bd-a2ac-44099fe27a1e",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Slip deleted\"] = responseBody.has(\"SUCCESS: there was no boat in the slip and the slip was deleted.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey2}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete slip - send boat to sea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "25ee608d-f700-4e0f-9e47-f8a7178ec1b7",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Slip was deleted and boat sent out to sea\"] = responseBody.has(\"SUCCESS: the slip was deleted and the boat was sent out to sea.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete slip - bad slip id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "03831f22-1382-4448-a8b0-9a2fcc72a851",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad slip id\"] = responseBody.has(\"ERROR: a slip with that ID does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/aghkZXZ-Tm9uZXIRCxIEU2xpcBiAgICAgICyC"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete boat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "98745b59-3a8a-46f7-b3a2-8f4c7b6abba8",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Boat was deleted\"] = responseBody.has(\"SUCCESS: the boat was deleted and was not in a slip.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/{{boatKey}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5f4d9731-5c36-4574-ae68-fb1b14e3b3c8",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"New slip was created\"] = responseBody.has(\"id\") && responseBody.has(\"number\") && responseBody.has(\"current_boat\") && responseBody.has(\"arrival_date\") && responseBody.has(\"self\") && responseCode.code === 200;",
+							"",
+							"var obj = JSON.parse(responseBody);",
+							"pm.globals.set(\"slipKey\", obj.id);",
+							"tests[\"Slip key set\"] = obj.id==pm.globals.get(\"slipKey\");",
+							"",
+							"tests[\"Slip number correct\"] = obj.number==6;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"number\": 6}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips",
+				"description": "Create new slip"
+			},
+			"response": []
+		},
+		{
+			"name": "Put boat in slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5c3f99d6-8d54-486c-877a-2447c0154fd5",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Boat was brought in from sea and added to slip\"] = responseBody.has(\"SUCCESS: the boat was brought in from the sea and added to the slip.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"current_boat\": \"{{boatKey2}}\", \"arrival_date\": \"2017-09-08\"}"
+				},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}/boat"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete boat - empty slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15626384-d14a-46c9-835b-355b64089215",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Boat was deleted and slip emptied\"] = responseBody.has(\"SUCCESS: the boat was deleted and the slip emptied.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/{{boatKey2}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete boat - bad boat id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c2d67881-145c-4fd1-bcfd-2712222993d5",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Bad boat id\"] = responseBody.has(\"ERROR: a boat with that ID does not exist.\") && responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/boats/aghkZXZTm9uZXIRCxIEQm9hdBiAgICAgICKC"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d56e293-1ea2-43bd-a2ac-44099fe27a1e",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Slip deleted\"] = responseBody.has(\"SUCCESS: there was no boat in the slip and the slip was deleted.\") && responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": "https://rest-api-implementation-192321.appspot.com/slips/{{slipKey}}"
+			},
+			"response": []
+		}
+	]
+}
