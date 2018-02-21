@@ -1,0 +1,31 @@
+
+<html lang="en">
+<head>
+    <title>OAuth 2.0 Implementation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen">
+</head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="centered-text display-3">OAuth 2.0 Implementation Results</h1>
+                    <p class="lead centered-text">
+                        <p class="lead centered-text">
+                            Access to your Google+ account's email has been achieved. 
+                        </p>
+                        <ul>
+                            <li><strong>First Name</strong>: {{ fname }}</li>
+                            <li><strong>Last Name</strong>: {{ lname }}</li>
+                            <li><strong>Google+ Link</strong>: <a href="{{ gplink }}">{{ gplink }}</a></li>
+                            <li><strong>State</strong>: {{ state }}</li>
+                        </ul>
+                    </p>
+                <p>
+                    {{noAccount}}
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
