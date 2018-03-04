@@ -716,10 +716,7 @@ def verifyUser(access_token):
         method = urlfetch.GET,
         headers=headers)
     user_id = 0
-    json_result = result.to_dict()
-    if not 'error' in json_result
-        json_result = json.loads(result.content)
-        user_id = json_result['id']
+    json_result = result.content
     #save data to inject into html
     return user_id
 
