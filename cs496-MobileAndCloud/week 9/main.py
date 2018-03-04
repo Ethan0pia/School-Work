@@ -718,10 +718,10 @@ def verifyUser(access_token):
     user_id = "0"
     try:
         json_result = json.loads(result.content)
+        return json_result['id']
     except ValueError, e:
         return "0"
-    json_result = json.loads(result.content)
-    return json_result['id']
+    return "0"
 
 
 #allow patching
