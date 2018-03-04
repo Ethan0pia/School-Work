@@ -122,7 +122,7 @@ class OAuthHandler(webapp2.RequestHandler):
 
 class UserHandler(webapp2.RequestHandler):
     def get(self, user_id):
-        user_id = verifyUser(user_id)
+#        user_id = verifyUser(user_id)
         if user_id != 0:
             user_exists = False
             user_account = ""
@@ -137,55 +137,54 @@ class UserHandler(webapp2.RequestHandler):
             else:
                 self.response.status = 401
                 self.response.write("ERROR: User does not exist")
-
-
-        #edit a user
-        def patch(self, user_id):
-            user_data = json.loads(self.request.body)
-            user_exists = False
-            user_account = ""
-            #find user account
-            for user in UserAccount.query():
-                if user.user_id == user_id:
-                    user_exists = True
-                    user_account = user
-            if user_exists:
-                    #check to verify that only 1 field is being edited by request.
-                    if len(user_data) != 1:
-                        self.response.status = 402
-                        self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
-                    else:
-                        #change the pertinent info in the user object
-                        for key in user_data:
-                            if key == "fname":
-                                user_account.fname = user_data['fname']
-                                user_account.put()
-                                user_dict = user_account.to_dict()
-                                user_dict.pop('id', None)
-                                self.response.write(json.dumps(user_dict))
-                            elif key == "lname":
-                                user_account.lname = user_data['lname']
-                                user_account.put()
-                                user_dict = user_account.to_dict()
-                                user_dict.pop('id', None)
-                                self.response.write(json.dumps(user_dict))
-                            elif key == "email":
-                                user_account.email = user_data['email']
-                                user_account.put()
-                                user_dict = user_account.to_dict()
-                                user_dict.pop('id', None)
-                                self.response.write(json.dumps(user_dict))
-                            #info sent is not one of the 3 things that can be patched
-                            else:
-                                self.response.status = 402
-                                self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
-            #user not found
-            else:
-                self.response.status = 401
-                self.response.write("ERROR: User does not exist")
         else:
             self.response.status = 425
             self.response.write("That token has expired. Please log back into the API to get a new token.")
+
+    #edit a user
+    def patch(self, user_id):
+        user_data = json.loads(self.request.body)
+        user_exists = False
+        user_account = ""
+        #find user account
+        for user in UserAccount.query():
+            if user.user_id == user_id:
+                user_exists = True
+                user_account = user
+        if user_exists:
+                #check to verify that only 1 field is being edited by request.
+                if len(user_data) != 1:
+                    self.response.status = 402
+                    self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
+                else:
+                    #change the pertinent info in the user object
+                    for key in user_data:
+                        if key == "fname":
+                            user_account.fname = user_data['fname']
+                            user_account.put()
+                            user_dict = user_account.to_dict()
+                            user_dict.pop('id', None)
+                            self.response.write(json.dumps(user_dict))
+                        elif key == "lname":
+                            user_account.lname = user_data['lname']
+                            user_account.put()
+                            user_dict = user_account.to_dict()
+                            user_dict.pop('id', None)
+                            self.response.write(json.dumps(user_dict))
+                        elif key == "email":
+                            user_account.email = user_data['email']
+                            user_account.put()
+                            user_dict = user_account.to_dict()
+                            user_dict.pop('id', None)
+                            self.response.write(json.dumps(user_dict))
+                        #info sent is not one of the 3 things that can be patched
+                        else:
+                            self.response.status = 402
+                            self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
+        #user not found
+        else:
+            self.response.status = 401
+            self.response.write("ERROR: User does not exist")
 
 
     #edit a user
