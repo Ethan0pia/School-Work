@@ -122,14 +122,7 @@ class OAuthHandler(webapp2.RequestHandler):
 
 class UserHandler(webapp2.RequestHandler):
     def get(self, user_id):
-        headers = {'Authorization': 'Bearer ' + user_id}
-        #get the user's information
-        result = urlfetch.fetch(
-            url="https://www.googleapis.com/plus/v1/people/me",
-            method = urlfetch.GET,
-            headers=headers)
-
-        #user_id = verifyUser(user_id)
+        user_id = verifyUser(user_id)
         if user_id != "0":
             user_exists = False
             user_account = ""
@@ -143,7 +136,7 @@ class UserHandler(webapp2.RequestHandler):
                 self.response.write(json.dumps({'user_id': user_account.user_id, 'fname': user_account.fname, 'lname': user_account.lname, 'email': user_account.email}))
             else:
                 self.response.status = 401
-                self.response.write(result)
+                self.response.write("ERROR: User does not exist")
         else:
             self.response.status = 425
             self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
@@ -723,7 +716,7 @@ def verifyUser(access_token):
         method = urlfetch.GET,
         headers=headers)
     user_id = 0
-    if result.content != "Not Found":
+    if result != '{ "error": { "errors": [ { "domain": "global", "reason": "authError", "message": "Invalid Credentials", "locationType": "header", "location": "Authorization" } ], "code": 401, "message": "Invalid Credentials" } }':
         json_result = json.loads(result.content)
         user_id = json_result['id']
     #save data to inject into html
