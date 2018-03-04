@@ -663,8 +663,7 @@ def verifyUser(access_token):
         return 0
     json_result = json.loads(result.content)
     #save data to inject into html
-    user_id = json_result['id']
-    #returns "Not Found" if expired
+    return json_result['id']
 
 
 #allow patching
