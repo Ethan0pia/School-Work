@@ -141,114 +141,112 @@ class UserHandler(webapp2.RequestHandler):
             self.response.status = 425
             self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
 
+
     #edit a user
     def patch(self, user_id):
-        user_data = json.loads(self.request.body)
-        user_exists = False
-        user_account = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_account = user
-        if user_exists:
-                #check to verify that only 1 field is being edited by request.
-                if len(user_data) != 1:
-                    self.response.status = 402
-                    self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
-                else:
-                    #change the pertinent info in the user object
-                    for key in user_data:
-                        if key == "fname":
+        user_id = verifyUser(user_id)
+        if user_id != "0":
+            user_data = json.loads(self.request.body)
+            user_exists = False
+            user_account = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_account = user
+            if user_exists:
+                    #check to verify that only 1 field is being edited by request.
+                    if len(user_data) != 1:
+                        self.response.status = 402
+                        self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
+                    else:
+                        #change the pertinent info in the user object
+                        for key in user_data:
+                            if key == "fname":
+                                user_account.fname = user_data['fname']
+                                user_account.put()
+                                user_dict = user_account.to_dict()
+                                user_dict.pop('id', None)
+                                self.response.write(json.dumps(user_dict))
+                            elif key == "lname":
+                                user_account.lname = user_data['lname']
+                                user_account.put()
+                                user_dict = user_account.to_dict()
+                                user_dict.pop('id', None)
+                                self.response.write(json.dumps(user_dict))
+                            elif key == "email":
+                                user_account.email = user_data['email']
+                                user_account.put()
+                                user_dict = user_account.to_dict()
+                                user_dict.pop('id', None)
+                                self.response.write(json.dumps(user_dict))
+                            #info sent is not one of the 3 things that can be patched
+                            else:
+                                self.response.status = 402
+                                self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
+            #user not found
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
+        else:
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
+
+
+    #edit a user
+    def put(self, user_id):
+        user_id = verifyUser(user_id)
+        if user_id != "0":
+            user_data = json.loads(self.request.body)
+            user_exists = False
+            user_account = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_account = user
+            if user_exists:
+                    #check to verify that only 1 field is being edited by request.
+                    if len(user_data) != 3:
+                        self.response.status = 402
+                        self.response.write("ERROR: the expected format is {\"fname\": \"str\", \"lname\": \"str\", \"email\": \"str\"}.")
+                    else:
+                        #change the pertinent info in the user object
+                        fname_check = False
+                        lname_check = False
+                        email_check = False
+                        for key in user_data:
+                            if key == "fname":
+                                fname_check = True
+                            elif key == "lname":
+                                lname_check = True
+                            elif key == "email":
+                                email_check = True
+                            #info sent is not one of the 3 things that can be put
+                            else:
+                                self.response.status = 402
+                                self.response.write("ERROR: the expected format is {\"fname\": \"str\", \"lname\": \"str\", \"email\": \"str\"}.")
+                        if fname_check and lname_check and email_check:
                             user_account.fname = user_data['fname']
-                            user_account.put()
-                            user_dict = user_account.to_dict()
-                            user_dict.pop('id', None)
-                            self.response.write(json.dumps(user_dict))
-                        elif key == "lname":
                             user_account.lname = user_data['lname']
-                            user_account.put()
-                            user_dict = user_account.to_dict()
-                            user_dict.pop('id', None)
-                            self.response.write(json.dumps(user_dict))
-                        elif key == "email":
                             user_account.email = user_data['email']
                             user_account.put()
                             user_dict = user_account.to_dict()
                             user_dict.pop('id', None)
                             self.response.write(json.dumps(user_dict))
-                        #info sent is not one of the 3 things that can be patched
-                        else:
-                            self.response.status = 402
-                            self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
-        #user not found
+            #user not found
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
         else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
-
-
-    #edit a user
-    def put(self, user_id):
-        user_data = json.loads(self.request.body)
-        user_exists = False
-        user_account = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_account = user
-        if user_exists:
-                #check to verify that only 1 field is being edited by request.
-                if len(user_data) != 3:
-                    self.response.status = 402
-                    self.response.write("ERROR: the expected format is {\"fname\": \"str\", \"lname\": \"str\", \"email\": \"str\"}.")
-                else:
-                    #change the pertinent info in the user object
-                    fname_check = False
-                    lname_check = False
-                    email_check = False
-                    for key in user_data:
-                        if key == "fname":
-                            fname_check = True
-                        elif key == "lname":
-                            lname_check = True
-                        elif key == "email":
-                            email_check = True
-                        #info sent is not one of the 3 things that can be put
-                        else:
-                            self.response.status = 402
-                            self.response.write("ERROR: the expected format is {\"fname\": \"str\", \"lname\": \"str\", \"email\": \"str\"}.")
-                    if fname_check and lname_check and email_check:
-                        user_account.fname = user_data['fname']
-                        user_account.lname = user_data['lname']
-                        user_account.email = user_data['email']
-                        user_account.put()
-                        user_dict = user_account.to_dict()
-                        user_dict.pop('id', None)
-                        self.response.write(json.dumps(user_dict))
-        #user not found
-        else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
 
 
     #delete a user
     def delete(self, user_id):
-        user_exists = False
-        user_account = ""
-        user_key = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_account = user
-                user_key = user.id
-        if user_exists:
-            for vehicle in Vehicle.query():
-                if vehicle.owner_id == user_key:
-                    vehicle.owner_id = "none"
-                    vehicle.put()
-            ndb.Key(urlsafe=user_key).delete()
+        user_id = verifyUser(user_id)
+        if user_id != "0":
             user_exists = False
             user_account = ""
             user_key = ""
@@ -256,399 +254,458 @@ class UserHandler(webapp2.RequestHandler):
             for user in UserAccount.query():
                 if user.user_id == user_id:
                     user_exists = True
-            if not user_exists:
-                self.response.write("User was deleted successfully")
+                    user_account = user
+                    user_key = user.id
+            if user_exists:
+                for vehicle in Vehicle.query():
+                    if vehicle.owner_id == user_key:
+                        vehicle.owner_id = "none"
+                        vehicle.put()
+                ndb.Key(urlsafe=user_key).delete()
+                user_exists = False
+                user_account = ""
+                user_key = ""
+                #find user account
+                for user in UserAccount.query():
+                    if user.user_id == user_id:
+                        user_exists = True
+                if not user_exists:
+                    self.response.write("User was deleted successfully")
+                else:
+                    self.response.status = 403
+                    self.response.write("ERROR: failed to delete user")
+            #user not found
             else:
-                self.response.status = 403
-                self.response.write("ERROR: failed to delete user")
-        #user not found
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
         else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
 
 
 class VehicleHandler(webapp2.RequestHandler):
     def get(self, user_id):
-        user_exists = False
-        user_key = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_key = user.id
-        if user_exists:
-            #write return json with only info the user knows. This keeps the id of the user secret for security purposes
-            owned_vehicles = []
-            for vehicle in Vehicle.query():
-                if vehicle.owner_id == user_key:
-                    vehicle_dict = vehicle.to_dict()
-                    vehicle_dict.pop('owner_id', None)
-                    vehicle_dict.pop('id', None)
-                    owned_vehicles.append(vehicle_dict)
-            self.response.write(json.dumps(owned_vehicles))
+        user_id = verifyUser(user_id)
+        if user_id != "0":
+            user_exists = False
+            user_key = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_key = user.id
+            if user_exists:
+                #write return json with only info the user knows. This keeps the id of the user secret for security purposes
+                owned_vehicles = []
+                for vehicle in Vehicle.query():
+                    if vehicle.owner_id == user_key:
+                        vehicle_dict = vehicle.to_dict()
+                        vehicle_dict.pop('owner_id', None)
+                        vehicle_dict.pop('id', None)
+                        owned_vehicles.append(vehicle_dict)
+                self.response.write(json.dumps(owned_vehicles))
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
         else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
 
 
     #add a vehicle
     def post(self, user_id):
-        vehicle_data = json.loads(self.request.body)
-        user_exists = False
-        user_key = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_key = user.id
-        if user_exists:
-                #check to verify that all 4 fields are being sent by request.
-                if len(vehicle_data) != 4:
-                    self.response.status = 402
-                    self.response.write("ERROR: the expected format is {\"vin\": \"str\", \"vehicle_make\": \"str\", \"vehicle_model\": \"str\", \"purchase_price\": \"str\"}.")
-                else:
-                    #change the pertinent info in the user object
-                    vin_check = False
-                    make_check = False
-                    model_check = False
-                    price_check = False
-                    for key in vehicle_data:
-                        if key == "vin":
-                            vin_check = True
-                        elif key == "vehicle_make":
-                            make_check = True
-                        elif key == "vehicle_model":
-                            model_check = True
-                        elif key == "purchase_price":
-                            price_check = True
-                        #info sent is not one of the 4 values of a vehicle
-                        else:
-                            self.response.status = 402
-                            self.response.write("ERROR: the expected format is {\"vin\": \"str\", \"vehicle_make\": \"str\", \"vehicle_model\": \"str\", \"purchase_price\": \"str\"}.")
-                    if vin_check and make_check and model_check and price_check:
-                        vehicle_exists = False
-                        for vehicle in Vehicle.query():
-                            if vehicle.vin == vehicle_data['vin']:
-                                vehicle_exists = True
-                        if not vehicle_exists:
-                            #create new vehicle object
-                            new_vehicle = Vehicle()
-                            new_vehicle.vin = vehicle_data['vin']
-                            new_vehicle.vehicle_make = vehicle_data['vehicle_make']
-                            new_vehicle.vehicle_model = vehicle_data['vehicle_model']
-                            new_vehicle.purchase_price = vehicle_data['purchase_price']
-                            new_vehicle.owner_id = user_key
-                            new_vehicle.put()
-                            new_vehicle.id = str(new_vehicle.key.urlsafe())
-                            new_vehicle.put()
-                            vehicle_dict = new_vehicle.to_dict()
-                            vehicle_dict.pop('owner_id', None)
-                            vehicle_dict.pop('id', None)
-                            self.response.write(json.dumps(vehicle_dict))
-                        else:
-                            self.response.status = 405
-                            self.response.write("ERROR: That vin is already owned by someone")
-        #user not found
-        else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
-
-
-    #add a vehicle
-    def delete(self, user_id):
-        vehicle_data = json.loads(self.request.body)
-        user_exists = False
-        user_key = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_key = user.id
-        if user_exists:
-                #check to verify that only the vin is sent by request.
-                if len(vehicle_data) != 1:
-                    self.response.status = 402
-                    self.response.write("ERROR: the expected format is {\"vin\": \"str\"}.")
-                else:
-                    #change the pertinent info in the user object
-                    vin_check = False
-                    for key in vehicle_data:
-                        if key == "vin":
-                            vin_check = True
-                        #info sent is not one of the 4 values of a vehicle
-                        else:
-                            self.response.status = 402
-                            self.response.write("ERROR: the expected format is {\"vin\": \"str\"}.")
-                    if vin_check:
-                        vehicle_exists = False
-                        vehicle_id = ""
-                        for vehicle in Vehicle.query():
-                            if vehicle.vin == vehicle_data['vin']:
-                                vehicle_exists = True
-                                vehicle_id = vehicle.id
-                        if vehicle_exists:
-                            ndb.Key(urlsafe=vehicle_id).delete()
+        user_id = verifyUser(user_id)
+        if user_id != "0":
+            vehicle_data = json.loads(self.request.body)
+            user_exists = False
+            user_key = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_key = user.id
+            if user_exists:
+                    #check to verify that all 4 fields are being sent by request.
+                    if len(vehicle_data) != 4:
+                        self.response.status = 402
+                        self.response.write("ERROR: the expected format is {\"vin\": \"str\", \"vehicle_make\": \"str\", \"vehicle_model\": \"str\", \"purchase_price\": \"str\"}.")
+                    else:
+                        #change the pertinent info in the user object
+                        vin_check = False
+                        make_check = False
+                        model_check = False
+                        price_check = False
+                        for key in vehicle_data:
+                            if key == "vin":
+                                vin_check = True
+                            elif key == "vehicle_make":
+                                make_check = True
+                            elif key == "vehicle_model":
+                                model_check = True
+                            elif key == "purchase_price":
+                                price_check = True
+                            #info sent is not one of the 4 values of a vehicle
+                            else:
+                                self.response.status = 402
+                                self.response.write("ERROR: the expected format is {\"vin\": \"str\", \"vehicle_make\": \"str\", \"vehicle_model\": \"str\", \"purchase_price\": \"str\"}.")
+                        if vin_check and make_check and model_check and price_check:
                             vehicle_exists = False
-                            #find vehicle to verify it was deleted correctly
                             for vehicle in Vehicle.query():
                                 if vehicle.vin == vehicle_data['vin']:
                                     vehicle_exists = True
                             if not vehicle_exists:
-                                self.response.write("Vehicle was deleted successfully")
-                            else:
-                                self.response.status = 403
-                                self.response.write("ERROR: failed to delete vehicle")
-                        else:
-                            self.response.status = 405
-                            self.response.write("ERROR: That vehicle does not exist")
-        #user not found
-        else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
-
-class UsersVehicleHandler(webapp2.RequestHandler):
-    def get(self, user_id, vin_number):
-        user_exists = False
-        user_key = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_key = user.id
-        if user_exists:
-            #write return json with only info the user knows. This keeps the id of the user secret for security purposes
-            vehicle_found = False
-            vehicle_dict = ""
-            for vehicle in Vehicle.query():
-                if vehicle.vin == vin_number:
-                    if vehicle.owner_id == user_key:
-                        vehicle_found = True
-                        vehicle_dict = vehicle.to_dict()
-                        vehicle_dict.pop('owner_id', None)
-                        vehicle_dict.pop('id', None)
-                    elif vehicle.owner_id == "none":
-                        vehicle_found = True
-                        vehicle_dict = vehicle.to_dict()
-                        vehicle_dict.pop('id', None)
-            if vehicle_found:
-                self.response.write(json.dumps(vehicle_dict))
-            else:
-                self.response.status = 401
-                self.response.write("ERROR: Vehicle does not exist")
-        else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
-
-
-    #claim a vehicle
-    def post(self, user_id, vin_number):
-        user_exists = False
-        user_key = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_key = user.id
-        if user_exists:
-            #change the pertinent info in the user object
-            vehicle_exists = False
-            vehicle_owned = False
-            vehicle_obj = ""
-            for vehicle in Vehicle.query():
-                if vehicle.vin == vin_number:
-                    if vehicle.owner_id == "none":
-                        vehicle_exists = True
-                        vehicle_obj = vehicle
-                    else:
-                        vehicle_owned = True
-            if vehicle_exists:
-                #create new vehicle object
-                vehicle_obj.owner_id = user_key
-                vehicle_obj.put()
-                self.response.write("Vehicle owner updated successfully")
-            elif vehicle_owned:
-                self.response.status = 410
-                self.response.write("ERROR: That vehicle is already owned by someone")
-            else:
-                self.response.status = 401
-                self.response.write("ERROR: Vehicle does not exist")
-        #user not found
-        else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
-
-
-    #edit a vehicle
-    def put(self, user_id, vehicle_vin):
-        user_data = json.loads(self.request.body)
-        user_exists = False
-        user_account = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_account = user
-        if user_exists:
-            #check to verify that all fields are being edited by request.
-            if len(user_data) != 4:
-                self.response.status = 402
-                self.response.write("ERROR: the expected format is {\"vin\": \"str\", \"vehicle_make\": \"str\", \"vehicle_model\": \"str\", \"purchase_price\": \"str\"}.")
-            else:
-                vehicle_exists = False
-                vehicle_obj = ""
-                for vehicle in Vehicle.query():
-                    if vehicle.vin == vehicle_vin and vehicle.owner_id == user_account.id:
-                        vehicle_exists = True
-                        vehicle_obj = vehicle
-                if vehicle_exists:
-                    #change the pertinent info in the user object
-                    vin_check = False
-                    make_check = False
-                    model_check = False
-                    price_check = False
-                    vin_used = False
-                    for key in user_data:
-                        if key == "vin":
-                            for vehicle in Vehicle.query():
-                                if vehicle.vin == user_data['vin']:
-                                    vin_used = True
-                            vin_check = True
-                        elif key == "vehicle_make":
-                            make_check = True
-                        elif key == "vehicle_model":
-                            model_check = True
-                        elif key == "purchase_price":
-                            price_check = True
-                        #info sent is not one of the 4 things that can be edited
-                        else:
-                            self.response.status = 402
-                            self.response.write("ERROR: the expected format is {\"vin\": \"str\", \"vehicle_make\": \"str\", \"vehicle_model\": \"str\", \"purchase_price\": \"str\"}")
-                    if vin_used:
-                        self.response.status = 405
-                        self.response.write("ERROR: that vin is already in use")
-                    elif vin_check and make_check and model_check and price_check:
-                        vehicle_obj.vin = user_data['vin']
-                        vehicle_obj.vehicle_make = user_data['vehicle_make']
-                        vehicle_obj.vehicle_model = user_data['vehicle_model']
-                        vehicle_obj.purchase_price = user_data['purchase_price']
-                        vehicle_obj.put()
-                        vehicle_dict = vehicle_obj.to_dict()
-                        vehicle_dict.pop('owner_id', None)
-                        vehicle_dict.pop('id', None)
-                        self.response.write(json.dumps(vehicle_dict))
-                else:
-                    self.response.status = 405
-                    self.response.write("ERROR: That vehicle does not exist")
-        #user not found
-        else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
-
-
-    #edit a vehicle
-    def patch(self, user_id, vehicle_vin):
-        user_data = json.loads(self.request.body)
-        user_exists = False
-        user_account = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_account = user
-        if user_exists:
-            #check to verify that only 1 field is being edited by request.
-            if len(user_data) != 1:
-                self.response.status = 402
-                self.response.write("ERROR: the expected format is {\"vin\": \"str\"} or {\"vehicle_make\": \"str\"} or {\"vehicle_model\": \"str\"} or {\"purchase_price\": \"str\"}")
-            else:
-                vehicle_exists = False
-                vehicle_obj = ""
-                for vehicle in Vehicle.query():
-                    if vehicle.vin == vehicle_vin and vehicle.owner_id == user_account.id:
-                        vehicle_exists = True
-                        vehicle_obj = vehicle
-                if vehicle_exists:
-                    #change the pertinent info in the user object
-                    for key in user_data:
-                        if key == "vin":
-                            vin_used = False
-                            for vehicle in Vehicle.query():
-                                if vehicle.vin == user_data['vin']:
-                                    vin_used = True
-                            if not vin_used:
-                                vehicle_obj.vin = user_data['vin']
-                                vehicle_obj.put()
-                                vehicle_dict = vehicle_obj.to_dict()
+                                #create new vehicle object
+                                new_vehicle = Vehicle()
+                                new_vehicle.vin = vehicle_data['vin']
+                                new_vehicle.vehicle_make = vehicle_data['vehicle_make']
+                                new_vehicle.vehicle_model = vehicle_data['vehicle_model']
+                                new_vehicle.purchase_price = vehicle_data['purchase_price']
+                                new_vehicle.owner_id = user_key
+                                new_vehicle.put()
+                                new_vehicle.id = str(new_vehicle.key.urlsafe())
+                                new_vehicle.put()
+                                vehicle_dict = new_vehicle.to_dict()
                                 vehicle_dict.pop('owner_id', None)
                                 vehicle_dict.pop('id', None)
                                 self.response.write(json.dumps(vehicle_dict))
                             else:
                                 self.response.status = 405
-                                self.response.write("ERROR: that vin is already in use")
-                        elif key == "vehicle_make":
+                                self.response.write("ERROR: That vin is already owned by someone")
+            #user not found
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
+        else:
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
+
+
+    #add a vehicle
+    def delete(self, user_id):
+        user_id = verifyUser(user_id)
+        if user_id != "0":
+            vehicle_data = json.loads(self.request.body)
+            user_exists = False
+            user_key = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_key = user.id
+            if user_exists:
+                    #check to verify that only the vin is sent by request.
+                    if len(vehicle_data) != 1:
+                        self.response.status = 402
+                        self.response.write("ERROR: the expected format is {\"vin\": \"str\"}.")
+                    else:
+                        #change the pertinent info in the user object
+                        vin_check = False
+                        for key in vehicle_data:
+                            if key == "vin":
+                                vin_check = True
+                            #info sent is not one of the 4 values of a vehicle
+                            else:
+                                self.response.status = 402
+                                self.response.write("ERROR: the expected format is {\"vin\": \"str\"}.")
+                        if vin_check:
+                            vehicle_exists = False
+                            vehicle_id = ""
+                            for vehicle in Vehicle.query():
+                                if vehicle.vin == vehicle_data['vin']:
+                                    vehicle_exists = True
+                                    vehicle_id = vehicle.id
+                            if vehicle_exists:
+                                ndb.Key(urlsafe=vehicle_id).delete()
+                                vehicle_exists = False
+                                #find vehicle to verify it was deleted correctly
+                                for vehicle in Vehicle.query():
+                                    if vehicle.vin == vehicle_data['vin']:
+                                        vehicle_exists = True
+                                if not vehicle_exists:
+                                    self.response.write("Vehicle was deleted successfully")
+                                else:
+                                    self.response.status = 403
+                                    self.response.write("ERROR: failed to delete vehicle")
+                            else:
+                                self.response.status = 405
+                                self.response.write("ERROR: That vehicle does not exist")
+            #user not found
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
+        else:
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
+
+
+class UsersVehicleHandler(webapp2.RequestHandler):
+    def get(self, user_id, vin_number):
+        user_id = verifyUser(user_id)
+        if user_id != "0":
+            user_exists = False
+            user_key = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_key = user.id
+            if user_exists:
+                #write return json with only info the user knows. This keeps the id of the user secret for security purposes
+                vehicle_found = False
+                vehicle_dict = ""
+                for vehicle in Vehicle.query():
+                    if vehicle.vin == vin_number:
+                        if vehicle.owner_id == user_key:
+                            vehicle_found = True
+                            vehicle_dict = vehicle.to_dict()
+                            vehicle_dict.pop('owner_id', None)
+                            vehicle_dict.pop('id', None)
+                        elif vehicle.owner_id == "none":
+                            vehicle_found = True
+                            vehicle_dict = vehicle.to_dict()
+                            vehicle_dict.pop('id', None)
+                if vehicle_found:
+                    self.response.write(json.dumps(vehicle_dict))
+                else:
+                    self.response.status = 401
+                    self.response.write("ERROR: Vehicle does not exist")
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
+        else:
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
+
+
+    #claim a vehicle
+    def post(self, user_id, vin_number):
+        user_id = verifyUser(user_id)
+        if user_id != "0":
+            user_exists = False
+            user_key = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_key = user.id
+            if user_exists:
+                #change the pertinent info in the user object
+                vehicle_exists = False
+                vehicle_owned = False
+                vehicle_obj = ""
+                for vehicle in Vehicle.query():
+                    if vehicle.vin == vin_number:
+                        if vehicle.owner_id == "none":
+                            vehicle_exists = True
+                            vehicle_obj = vehicle
+                        else:
+                            vehicle_owned = True
+                if vehicle_exists:
+                    #create new vehicle object
+                    vehicle_obj.owner_id = user_key
+                    vehicle_obj.put()
+                    self.response.write("Vehicle owner updated successfully")
+                elif vehicle_owned:
+                    self.response.status = 410
+                    self.response.write("ERROR: That vehicle is already owned by someone")
+                else:
+                    self.response.status = 401
+                    self.response.write("ERROR: Vehicle does not exist")
+            #user not found
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
+        else:
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
+
+
+    #edit a vehicle
+    def put(self, user_id, vehicle_vin):
+        user_id = verifyUser(user_id)
+        if user_id != "0":
+            user_data = json.loads(self.request.body)
+            user_exists = False
+            user_account = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_account = user
+            if user_exists:
+                #check to verify that all fields are being edited by request.
+                if len(user_data) != 4:
+                    self.response.status = 402
+                    self.response.write("ERROR: the expected format is {\"vin\": \"str\", \"vehicle_make\": \"str\", \"vehicle_model\": \"str\", \"purchase_price\": \"str\"}.")
+                else:
+                    vehicle_exists = False
+                    vehicle_obj = ""
+                    for vehicle in Vehicle.query():
+                        if vehicle.vin == vehicle_vin and vehicle.owner_id == user_account.id:
+                            vehicle_exists = True
+                            vehicle_obj = vehicle
+                    if vehicle_exists:
+                        #change the pertinent info in the user object
+                        vin_check = False
+                        make_check = False
+                        model_check = False
+                        price_check = False
+                        vin_used = False
+                        for key in user_data:
+                            if key == "vin":
+                                for vehicle in Vehicle.query():
+                                    if vehicle.vin == user_data['vin']:
+                                        vin_used = True
+                                vin_check = True
+                            elif key == "vehicle_make":
+                                make_check = True
+                            elif key == "vehicle_model":
+                                model_check = True
+                            elif key == "purchase_price":
+                                price_check = True
+                            #info sent is not one of the 4 things that can be edited
+                            else:
+                                self.response.status = 402
+                                self.response.write("ERROR: the expected format is {\"vin\": \"str\", \"vehicle_make\": \"str\", \"vehicle_model\": \"str\", \"purchase_price\": \"str\"}")
+                        if vin_used:
+                            self.response.status = 405
+                            self.response.write("ERROR: that vin is already in use")
+                        elif vin_check and make_check and model_check and price_check:
+                            vehicle_obj.vin = user_data['vin']
                             vehicle_obj.vehicle_make = user_data['vehicle_make']
-                            vehicle_obj.put()
-                            vehicle_dict = vehicle_obj.to_dict()
-                            vehicle_dict.pop('owner_id', None)
-                            vehicle_dict.pop('id', None)
-                            self.response.write(json.dumps(vehicle_dict))
-                        elif key == "vehicle_model":
                             vehicle_obj.vehicle_model = user_data['vehicle_model']
-                            vehicle_obj.put()
-                            vehicle_dict = vehicle_obj.to_dict()
-                            vehicle_dict.pop('owner_id', None)
-                            vehicle_dict.pop('id', None)
-                            self.response.write(json.dumps(vehicle_dict))
-                        elif key == "purchase_price":
                             vehicle_obj.purchase_price = user_data['purchase_price']
                             vehicle_obj.put()
                             vehicle_dict = vehicle_obj.to_dict()
                             vehicle_dict.pop('owner_id', None)
                             vehicle_dict.pop('id', None)
                             self.response.write(json.dumps(vehicle_dict))
-                        #info sent is not one of the 3 things that can be patched
-                        else:
-                            self.response.status = 402
-                            self.response.write("ERROR: the expected format is {\"vin\": \"str\"} or {\"vehicle_make\": \"str\"} or {\"vehicle_model\": \"str\"} or {\"purchase_price\": \"str\"}")
-                else:
-                    self.response.status = 405
-                    self.response.write("ERROR: That vehicle does not exist")
-        #user not found
+                    else:
+                        self.response.status = 405
+                        self.response.write("ERROR: That vehicle does not exist")
+            #user not found
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
         else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
+
+
+    #edit a vehicle
+    def patch(self, user_id, vehicle_vin):
+        user_id = verifyUser(user_id)
+        if user_id != "0":
+            user_data = json.loads(self.request.body)
+            user_exists = False
+            user_account = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_account = user
+            if user_exists:
+                #check to verify that only 1 field is being edited by request.
+                if len(user_data) != 1:
+                    self.response.status = 402
+                    self.response.write("ERROR: the expected format is {\"vin\": \"str\"} or {\"vehicle_make\": \"str\"} or {\"vehicle_model\": \"str\"} or {\"purchase_price\": \"str\"}")
+                else:
+                    vehicle_exists = False
+                    vehicle_obj = ""
+                    for vehicle in Vehicle.query():
+                        if vehicle.vin == vehicle_vin and vehicle.owner_id == user_account.id:
+                            vehicle_exists = True
+                            vehicle_obj = vehicle
+                    if vehicle_exists:
+                        #change the pertinent info in the user object
+                        for key in user_data:
+                            if key == "vin":
+                                vin_used = False
+                                for vehicle in Vehicle.query():
+                                    if vehicle.vin == user_data['vin']:
+                                        vin_used = True
+                                if not vin_used:
+                                    vehicle_obj.vin = user_data['vin']
+                                    vehicle_obj.put()
+                                    vehicle_dict = vehicle_obj.to_dict()
+                                    vehicle_dict.pop('owner_id', None)
+                                    vehicle_dict.pop('id', None)
+                                    self.response.write(json.dumps(vehicle_dict))
+                                else:
+                                    self.response.status = 405
+                                    self.response.write("ERROR: that vin is already in use")
+                            elif key == "vehicle_make":
+                                vehicle_obj.vehicle_make = user_data['vehicle_make']
+                                vehicle_obj.put()
+                                vehicle_dict = vehicle_obj.to_dict()
+                                vehicle_dict.pop('owner_id', None)
+                                vehicle_dict.pop('id', None)
+                                self.response.write(json.dumps(vehicle_dict))
+                            elif key == "vehicle_model":
+                                vehicle_obj.vehicle_model = user_data['vehicle_model']
+                                vehicle_obj.put()
+                                vehicle_dict = vehicle_obj.to_dict()
+                                vehicle_dict.pop('owner_id', None)
+                                vehicle_dict.pop('id', None)
+                                self.response.write(json.dumps(vehicle_dict))
+                            elif key == "purchase_price":
+                                vehicle_obj.purchase_price = user_data['purchase_price']
+                                vehicle_obj.put()
+                                vehicle_dict = vehicle_obj.to_dict()
+                                vehicle_dict.pop('owner_id', None)
+                                vehicle_dict.pop('id', None)
+                                self.response.write(json.dumps(vehicle_dict))
+                            #info sent is not one of the 3 things that can be patched
+                            else:
+                                self.response.status = 402
+                                self.response.write("ERROR: the expected format is {\"vin\": \"str\"} or {\"vehicle_make\": \"str\"} or {\"vehicle_model\": \"str\"} or {\"purchase_price\": \"str\"}")
+                    else:
+                        self.response.status = 405
+                        self.response.write("ERROR: That vehicle does not exist")
+            #user not found
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
+        else:
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
 
 
     #sell a vehicle
     def delete(self, user_id, vin_number):
-        user_exists = False
-        user_key = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_key = user.id
-        if user_exists:
-            #change the pertinent info in the user object
-            vehicle_exists = False
-            vehicle_obj = ""
-            for vehicle in Vehicle.query():
-                if vehicle.vin == vin_number:
-                    if vehicle.owner_id == user_key:
-                        vehicle_exists = True
-                        vehicle_obj = vehicle
-            if vehicle_exists:
-                #find vehicle to verify it was deleted correctly
-                vehicle_obj.owner_id = "none"
-                vehicle_obj.put()
-                self.response.write("Vehicle was set to unowned")
+        user_id = verifyUser(user_id)
+        if user_id != "0":
+            user_exists = False
+            user_key = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_key = user.id
+            if user_exists:
+                #change the pertinent info in the user object
+                vehicle_exists = False
+                vehicle_obj = ""
+                for vehicle in Vehicle.query():
+                    if vehicle.vin == vin_number:
+                        if vehicle.owner_id == user_key:
+                            vehicle_exists = True
+                            vehicle_obj = vehicle
+                if vehicle_exists:
+                    #find vehicle to verify it was deleted correctly
+                    vehicle_obj.owner_id = "none"
+                    vehicle_obj.put()
+                    self.response.write("Vehicle was set to unowned")
+                else:
+                    self.response.status = 405
+                    self.response.write("ERROR: That vehicle does not exist or is owned by someone else")
+            #user not found
             else:
-                self.response.status = 405
-                self.response.write("ERROR: That vehicle does not exist or is owned by someone else")
-        #user not found
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
         else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
+            self.response.status = 425
+            self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
 
 
 def verifyUser(access_token):
@@ -658,8 +715,10 @@ def verifyUser(access_token):
         url="https://www.googleapis.com/plus/v1/people/me",
         method = urlfetch.GET,
         headers=headers)
-    json_result = json.loads(result.content)
-    user_id = json_result['id']
+    user_id = 0
+    if result.content != "Not Found":
+        json_result = json.loads(result.content)
+        user_id = json_result['id']
     #save data to inject into html
     return user_id
 
