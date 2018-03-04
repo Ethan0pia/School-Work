@@ -717,7 +717,7 @@ def verifyUser(access_token):
         headers=headers)
     user_id = "2"
     json_result = json.loads(result.content)
-    if json_result['error']:
+    if 'error' in json_result:
         return "0"
     return user_id
 
