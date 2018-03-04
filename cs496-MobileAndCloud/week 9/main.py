@@ -143,7 +143,7 @@ class UserHandler(webapp2.RequestHandler):
                 self.response.write(json.dumps({'user_id': user_account.user_id, 'fname': user_account.fname, 'lname': user_account.lname, 'email': user_account.email}))
             else:
                 self.response.status = 401
-                self.response.write(result.content)
+                self.response.write(result)
         else:
             self.response.status = 425
             self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
