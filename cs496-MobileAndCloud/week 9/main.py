@@ -716,11 +716,12 @@ def verifyUser(access_token):
         method = urlfetch.GET,
         headers=headers)
     user_id = "0"
-    if result != '{\n "error": {\n  "errors": [\n   {\n    "domain": "global",\n    "reason": "authError",\n    "message": "Invalid Credentials",\n    "locationType": "header",\n    "location": "Authorization"\n   }\n  ],\n  "code": 401,\n  "message": "Invalid Credentials"\n }\n}':
+    try:
         json_result = json.loads(result.content)
-        user_id = json_result['id']
-    #save data to inject into html
-    return user_id
+    except ValueError, e:
+        return "0"
+    json_result = json.loads(result.content)
+    return json_result['id']
 
 
 #allow patching
