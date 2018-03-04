@@ -659,7 +659,7 @@ def verifyUser(access_token):
         method = urlfetch.GET,
         headers=headers)
     json_result = json.loads(result.content)
-    json_result['id']
+    user_id = json_result['id']
     #save data to inject into html
     return user_id
 
