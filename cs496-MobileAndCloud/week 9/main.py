@@ -18,9 +18,9 @@ import json
 import os
 
 #Global variables to easily change Oauth info between users/programs
-CLIENT_ID = '527379074383-n8prs1s8c6pkl9ntadickctps9uutk7p.apps.googleusercontent.com'
-CLIENT_SECRET = 'TNb6u0XRp-TpTGQ9njTxOn4E'
-REDIRECT_URI = 'https://cloud-only-final.appspot.com/oauth'
+CLIENT_ID = '715972069292-u1t11gbjl4u3prefg17phai60acmqcan.apps.googleusercontent.com'
+CLIENT_SECRET = '3kbPBBC0YL4GZxsQjhkY05Y4'
+REDIRECT_URI = 'https://cloud-only-final-2.appspot.com/oauth'
 
 
 class Vehicle(ndb.Model):
@@ -82,6 +82,7 @@ class OAuthHandler(webapp2.RequestHandler):
         json_result = json.loads(result.content)
         #save the token
         headers = {'Authorization': 'Bearer ' + json_result['access_token']}
+        token = json_result['access_token']
         #get the user's information
         result = urlfetch.fetch(
             url="https://www.googleapis.com/plus/v1/people/me",
@@ -97,7 +98,7 @@ class OAuthHandler(webapp2.RequestHandler):
 
         template_values = {'fname': fname,
                            'lname': lname,
-                           'user_id': user_id}
+                           'user_id': token}
         
         user_exists = False
         for user in UserAccount.query():
@@ -121,65 +122,70 @@ class OAuthHandler(webapp2.RequestHandler):
 
 class UserHandler(webapp2.RequestHandler):
     def get(self, user_id):
-        user_exists = False
-        user_account = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_account = user
-        if user_exists:
-            #write return json with only info the user knows. This keeps the id of the user secret for security purposes
-            self.response.write(json.dumps({'user_id': user_account.user_id, 'fname': user_account.fname, 'lname': user_account.lname, 'email': user_account.email}))
-        else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
+        user_id = verifyUser(user_id)
+        if user_id != 0:
+            user_exists = False
+            user_account = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_account = user
+            if user_exists:
+                #write return json with only info the user knows. This keeps the id of the user secret for security purposes
+                self.response.write(json.dumps({'user_id': user_account.user_id, 'fname': user_account.fname, 'lname': user_account.lname, 'email': user_account.email}))
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
 
 
-    #edit a user
-    def patch(self, user_id):
-        user_data = json.loads(self.request.body)
-        user_exists = False
-        user_account = ""
-        #find user account
-        for user in UserAccount.query():
-            if user.user_id == user_id:
-                user_exists = True
-                user_account = user
-        if user_exists:
-                #check to verify that only 1 field is being edited by request.
-                if len(user_data) != 1:
-                    self.response.status = 402
-                    self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
-                else:
-                    #change the pertinent info in the user object
-                    for key in user_data:
-                        if key == "fname":
-                            user_account.fname = user_data['fname']
-                            user_account.put()
-                            user_dict = user_account.to_dict()
-                            user_dict.pop('id', None)
-                            self.response.write(json.dumps(user_dict))
-                        elif key == "lname":
-                            user_account.lname = user_data['lname']
-                            user_account.put()
-                            user_dict = user_account.to_dict()
-                            user_dict.pop('id', None)
-                            self.response.write(json.dumps(user_dict))
-                        elif key == "email":
-                            user_account.email = user_data['email']
-                            user_account.put()
-                            user_dict = user_account.to_dict()
-                            user_dict.pop('id', None)
-                            self.response.write(json.dumps(user_dict))
-                        #info sent is not one of the 3 things that can be patched
-                        else:
-                            self.response.status = 402
-                            self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
-        #user not found
+        #edit a user
+        def patch(self, user_id):
+            user_data = json.loads(self.request.body)
+            user_exists = False
+            user_account = ""
+            #find user account
+            for user in UserAccount.query():
+                if user.user_id == user_id:
+                    user_exists = True
+                    user_account = user
+            if user_exists:
+                    #check to verify that only 1 field is being edited by request.
+                    if len(user_data) != 1:
+                        self.response.status = 402
+                        self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
+                    else:
+                        #change the pertinent info in the user object
+                        for key in user_data:
+                            if key == "fname":
+                                user_account.fname = user_data['fname']
+                                user_account.put()
+                                user_dict = user_account.to_dict()
+                                user_dict.pop('id', None)
+                                self.response.write(json.dumps(user_dict))
+                            elif key == "lname":
+                                user_account.lname = user_data['lname']
+                                user_account.put()
+                                user_dict = user_account.to_dict()
+                                user_dict.pop('id', None)
+                                self.response.write(json.dumps(user_dict))
+                            elif key == "email":
+                                user_account.email = user_data['email']
+                                user_account.put()
+                                user_dict = user_account.to_dict()
+                                user_dict.pop('id', None)
+                                self.response.write(json.dumps(user_dict))
+                            #info sent is not one of the 3 things that can be patched
+                            else:
+                                self.response.status = 402
+                                self.response.write("ERROR: the expected format is {\"fname\": \"str\"} or {\"lname\": \"str\"} or {\"email\": \"str\"}.")
+            #user not found
+            else:
+                self.response.status = 401
+                self.response.write("ERROR: User does not exist")
         else:
-            self.response.status = 401
-            self.response.write("ERROR: User does not exist")
+            self.response.status = 425
+            self.response.write("That token has expired. Please log back into the API to get a new token.")
 
 
     #edit a user
@@ -644,6 +650,23 @@ class UsersVehicleHandler(webapp2.RequestHandler):
         else:
             self.response.status = 401
             self.response.write("ERROR: User does not exist")
+
+
+def verifyUser(access_token):
+    headers = {'Authorization': 'Bearer ' + json_result['access_token']}
+    #get the user's information
+    result = urlfetch.fetch(
+        url="https://www.googleapis.com/plus/v1/people/me",
+        method = urlfetch.GET,
+        headers=headers)
+
+    if result.content == "Not Found":
+        return 0
+    json_result = json.loads(result.content)
+    #save data to inject into html
+    user_id = json_result['id']
+    #returns "Not Found" if expired
+
 
 #allow patching
 allowed_methods = webapp2.WSGIApplication.allowed_methods
