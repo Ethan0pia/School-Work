@@ -715,11 +715,10 @@ def verifyUser(access_token):
         url="https://www.googleapis.com/plus/v1/people/me",
         method = urlfetch.GET,
         headers=headers)
-    user_id = "2"
     json_result = json.loads(result.content)
     if 'error' in json_result:
         return "0"
-    return user_id
+    return json_result['id']
 
 #allow patching
 allowed_methods = webapp2.WSGIApplication.allowed_methods
