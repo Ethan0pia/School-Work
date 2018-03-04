@@ -123,7 +123,7 @@ class OAuthHandler(webapp2.RequestHandler):
 class UserHandler(webapp2.RequestHandler):
     def get(self, user_id):
         user_id = verifyUser(user_id)
-        if user_id != 0:
+        if user_id != '0':
             user_exists = False
             user_account = ""
             #find user account
