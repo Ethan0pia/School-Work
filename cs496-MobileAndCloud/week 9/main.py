@@ -717,7 +717,7 @@ def verifyUser(access_token):
         headers=headers)
     user_id = '0'
     try:
-        json_result = json.loads(result.content)
+        json_result = result.content.to_dict()
         return json_result['id']
     except ValueError, e:
         return user_id
