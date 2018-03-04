@@ -716,7 +716,7 @@ def verifyUser(access_token):
         method = urlfetch.GET,
         headers=headers)
     user_id = 0
-    json_result = json.loads(result)
+    json_result = result.to_dict()
     if 'error' not in json_result
         json_result = json.loads(result.content)
         user_id = json_result['id']
