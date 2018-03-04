@@ -715,7 +715,7 @@ def verifyUser(access_token):
         url="https://www.googleapis.com/plus/v1/people/me",
         method = urlfetch.GET,
         headers=headers)
-    user_id = "0"
+    user_id = 0
     json_result = json.loads(result.content)
     if 'error' not in json_result:
         json_result = json.loads(result.content)
