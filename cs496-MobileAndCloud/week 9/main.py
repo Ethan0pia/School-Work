@@ -658,12 +658,10 @@ def verifyUser(access_token):
         url="https://www.googleapis.com/plus/v1/people/me",
         method = urlfetch.GET,
         headers=headers)
-
-    if result.content == "Not Found":
-        return 0
     json_result = json.loads(result.content)
+    json_result['id']
     #save data to inject into html
-    return json_result['id']
+    return user_id
 
 
 #allow patching
