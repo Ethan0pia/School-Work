@@ -122,7 +122,7 @@ class OAuthHandler(webapp2.RequestHandler):
 
 class UserHandler(webapp2.RequestHandler):
     def get(self, user_id):
-        headers = {'Authorization': 'Bearer ' + access_token}
+        headers = {'Authorization': 'Bearer ' + user_id}
         #get the user's information
         result = urlfetch.fetch(
             url="https://www.googleapis.com/plus/v1/people/me",
