@@ -715,9 +715,8 @@ def verifyUser(access_token):
         url="https://www.googleapis.com/plus/v1/people/me",
         method = urlfetch.GET,
         headers=headers)
-    user_id = '0'
-    json_result = json.loads(result)
-    if 'error' not in json_result:
+    user_id = "0"
+    if result != '{\n "error": {\n  "errors": [\n   {\n    "domain": "global",\n    "reason": "authError",\n    "message": "Invalid Credentials",\n    "locationType": "header",\n    "location": "Authorization"\n   }\n  ],\n  "code": 401,\n  "message": "Invalid Credentials"\n }\n}':
         json_result = json.loads(result.content)
         user_id = json_result['id']
     #save data to inject into html
