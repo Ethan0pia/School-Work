@@ -123,7 +123,7 @@ class OAuthHandler(webapp2.RequestHandler):
 class UserHandler(webapp2.RequestHandler):
     def get(self, user_id):
         user_id = verifyUser(user_id)
-        if user_id != 0:
+        if user_id != "0":
             user_exists = False
             user_account = ""
             #find user account
@@ -715,8 +715,8 @@ def verifyUser(access_token):
         url="https://www.googleapis.com/plus/v1/people/me",
         method = urlfetch.GET,
         headers=headers)
-    user_id = 0
-    json_result = json.loads(result.content)
+    user_id = '0'
+    json_result = result.to_dict()
     if 'error' not in json_result:
         json_result = json.loads(result.content)
         user_id = json_result['id']
