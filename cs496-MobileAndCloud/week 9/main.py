@@ -138,7 +138,7 @@ class UserHandler(webapp2.RequestHandler):
                 self.response.status = 401
                 self.response.write("ERROR: User does not exist")
         else:
-            self.response.status = 425
+            self.response.status = 412
             self.response.write("That token has expired or is invalid. Please log back into the API to get a new token.")
 
 
@@ -715,7 +715,7 @@ def verifyUser(access_token):
         url="https://www.googleapis.com/plus/v1/people/me",
         method = urlfetch.GET,
         headers=headers)
-    user_id = "0"
+    user_id = '0'
     try:
         json_result = json.loads(result.content)
         return user_id
