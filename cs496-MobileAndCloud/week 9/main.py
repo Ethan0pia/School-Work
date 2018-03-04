@@ -719,6 +719,7 @@ def verifyUser(access_token):
     json_result = json.loads(result.content)
     if json_result['error']:
         return "0"
+    return user_id
 
 #allow patching
 allowed_methods = webapp2.WSGIApplication.allowed_methods
